@@ -10,21 +10,22 @@ const User = require('../../models/User');
 // @desc Register new user
 // @access Public
 router.post('/',(req,res) =>{
-    const {name, email, password} = req.body;
+    const {name, email, password, isContributor} = req.body;
 
     // Simple validation
-    if(!name || !email || !password){
-        return res.status(400).json({msg: 'Please enter all fields'});
+    if(!name || !email || !password || !isContributor){
+        return res.status(400).json({msg: 'Porfavor rellene todos los campos'});
     }
     //Check for existing user
     User.findOne({email: email})
         .then(user => {
-            if(user) return res.status(400).json({msg: 'User already exists'});
+            if(user) return res.status(400).json({msg: 'El usuario ya existe'});
 
             const newUser = new User({
                 name,
                 email,
-                password
+                password,
+                isContributor
             })
 
             // Create salt & hash password
@@ -38,7 +39,7 @@ router.post('/',(req,res) =>{
                             jwt.sign( //payload
                                 { id: user.id }, 
                                 config.get('jwtSecret'),
-                                {expiresIn: 3600}, //token dura 1hr
+                                {expiresIn: 7200}, //token dura 2hr
                                 (err, token) => {
                                     if(err) throw err;
                                     res.json({
@@ -46,7 +47,8 @@ router.post('/',(req,res) =>{
                                         user: {
                                             id: user.id,
                                             name: user.name,
-                                            email: user.email
+                                            email: user.email,
+                                            isContributor: user.isContributor
                                         }
                                     });
                                 }

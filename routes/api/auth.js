@@ -12,22 +12,22 @@ const User = require('../../models/User');
 // @desc Auth user
 // @access Public
 router.post('/',(req,res) =>{
-    const {email, password} = req.body;
+    const {email, password, name, isContributor} = req.body;
 
     // Simple validation
-    if(!email || !password){
-        return res.status(400).json({msg: 'Please enter all fields'});
+    if(!email || !password || !name || !isContributor){
+        return res.status(400).json({msg: 'Porfavor rellene todos los campos'});
     }
     //Check for existing user
     User.findOne({email: email})
         .then(user => {
-            if(!user) return res.status(400).json({msg: 'User does not exist'});
+            if(!user) return res.status(400).json({msg: 'El usuario no existe'});
 
             
             // Validate password
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
-                    if(!isMatch) return res.status(400).json({msg: 'Invalidad credentials'});
+                    if(!isMatch) return res.status(400).json({msg: 'Credenciales invalidas'});
 
                     //Validated
 
@@ -42,7 +42,8 @@ router.post('/',(req,res) =>{
                                 user: {
                                     id: user.id,
                                     name: user.name,
-                                    email: user.email
+                                    email: user.email,
+                                    isContributor: user.isContributor
                                 }
                             });
                         }

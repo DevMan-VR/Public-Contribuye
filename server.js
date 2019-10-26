@@ -16,12 +16,12 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreat
     .then(()=> console.log('MongoDB Connected...'))
     .catch(err => console.log(err));
 
-const item = require('./routes/api/items');
+const service = require('./routes/api/services');
 const user = require('./routes/api/users');
 const auth = require('./routes/api/auth');
 
 // Use Routes
-app.use('/api/items', item);
+app.use('/api/services', service);
 app.use('/api/users', user);
 app.use('/api/auth', auth);
 

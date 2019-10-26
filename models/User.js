@@ -15,10 +15,26 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    isContributor: {
+        type: Boolean,
+        required: true
+    },
+    phone: {
+        type: Number,
+    },
+    company: {
+        type: String,
+    },
+    address: {
+        type: String,
+    },
+    profileImgUrl: {
+        type: String,
+    },
     register_date : {
         type: Date,
         default: Date.now
     }
 });
 
-module.exports = Item = mongoose.model('user',UserSchema);
+module.exports = User = mongoose.model('user',UserSchema);
