@@ -19,8 +19,9 @@ const UserSchema = new Schema({
         type: Boolean,
         required: true
     },
-    phone: {
-        type: Number,
+    phoneNumber: {
+        type: String,
+        required: true
     },
     company: {
         type: String,
@@ -28,13 +29,29 @@ const UserSchema = new Schema({
     address: {
         type: String,
     },
+    experience: {
+        type: Number
+    },
+ 
     profileImgUrl: {
         type: String,
     },
-    register_date : {
+    registerDate : {
         type: Date,
         default: Date.now
-    }
+    },
+    serviceRequests: [{
+        idUserRequester: {type: String},
+        idUserOfferer: {type:String},
+        titleServiceOffered: {type:String},
+        stateRequest: {type:String}
+    }],
+    achievements: [{
+        name: {type: String},
+        description: {type: String},
+        value: {type: Number},
+        iconUrl: {type: String}
+    }]
 });
 
 module.exports = User = mongoose.model('user',UserSchema);

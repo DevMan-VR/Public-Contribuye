@@ -10,10 +10,10 @@ const User = require('../../models/User');
 // @desc Register new user
 // @access Public
 router.post('/',(req,res) =>{
-    const {name, email, password, isContributor} = req.body;
+    const {name, email, password, isContributor, phoneNumber} = req.body;
 
     // Simple validation
-    if(!name || !email || !password || !isContributor){
+    if(!name || !email || !password || !isContributor || !phoneNumber){
         return res.status(400).json({msg: 'Porfavor rellene todos los campos'});
     }
     //Check for existing user
@@ -25,7 +25,8 @@ router.post('/',(req,res) =>{
                 name,
                 email,
                 password,
-                isContributor
+                isContributor,
+                phoneNumber
             })
 
             // Create salt & hash password

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const ServiceSchema = new Schema({
     title: {
         type: String,
@@ -17,17 +18,18 @@ const ServiceSchema = new Schema({
     subcategory: {
         type: String,
     },
-    payment: {
-        typeOf: { type: String, required: true },
-        amount: { type: Number, required: true },
-        method: { type: String, required: true}
-    },
+    
+        serviceType: { type: String, required: true },
+        p_amount: { type: Number, required: true },
+        p_method: { type: String, required: true},
+
     location: {
         type: String,
     },
     until: {
         type: Date,
     }
+    
 });
 
 module.exports = Service = mongoose.model('service',ServiceSchema);

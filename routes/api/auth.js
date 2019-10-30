@@ -12,10 +12,10 @@ const User = require('../../models/User');
 // @desc Auth user
 // @access Public
 router.post('/',(req,res) =>{
-    const {email, password, name, isContributor} = req.body;
+    const {email, password, name, isContributor, phoneNumber} = req.body;
 
     // Simple validation
-    if(!email || !password || !name || !isContributor){
+    if(!email || !password || !name || !isContributor || !phoneNumber){
         return res.status(400).json({msg: 'Porfavor rellene todos los campos'});
     }
     //Check for existing user
@@ -43,7 +43,8 @@ router.post('/',(req,res) =>{
                                     id: user.id,
                                     name: user.name,
                                     email: user.email,
-                                    isContributor: user.isContributor
+                                    isContributor: user.isContributor,
+                                    phoneNumber: user.phoneNumber
                                 }
                             });
                         }

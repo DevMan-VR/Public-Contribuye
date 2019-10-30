@@ -20,6 +20,15 @@ router.get('/',(req,res) =>{
         .then(services => res.json(services))
 });
 
+// @route GET api/services
+// @desc Get services from category
+// @access Public
+router.get('/:category',(req,res) =>{
+    Service.find({ category: res.params.category })
+        .sort({date:-1}) //descending
+        .then(services => res.json(services))
+});
+
 // @route POST api/services
 // @desc Create A Service
 // @access Private
@@ -31,11 +40,11 @@ router.post('/',auth,(req,res) => {
         subcategory: req.body.subcategory,
         location: req.body.location,
         until: req.body.until,
-        payment : {
-            typeOf: req.body.payment.typeOf,
-            amount: req.body.payment.amount,
-            method: req.body.payment.method
-        }
+
+            serviceType: req.body.payment.serviceType,
+            p_amount: req.body.payment.p_amount,
+            p_method: req.body.payment.p_method
+
     });
     newService.save().then(service=>res.json(service));
 });
