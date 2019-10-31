@@ -1,14 +1,69 @@
 
-.proto-div{}
 
-.health{}
-.health-item{}
+.health{
+    background-color:#4BCDA1 ;
+}
+.health_item{
+    background-color: #81DF90;
+}
 
-.law{}
-.law-item{}
+.law{
+    background-color: #6F6AB4;
+}
+.law_item{}
 
-.tech{}
-.tech-item{}
+.tech{
+    background-color: #FF8B42;
+}
+.tech_item{}
 
-.learning{}
-.learning-item{}
+.learning{
+    background-color: #0094BE;
+}
+.learning_item{}
+
+.local-market{
+    background-color:#00535E ;
+}
+.local-market-item{}
+
+.events{
+    background-color:#A33563;
+}
+.events-item{}
+
+.offers{
+    background-color:#944F92;
+}
+.offers-item{}
+
+.others{
+    background-color:#872300;
+}
+.others-item{}
+
+.category-div{
+    margin: top;
+}
+
+.category-div li {
+    color: whitesmoke;
+    text-align: left;
+
+    
+}
+.category-div h3 {
+    color: whitesmoke;
+    vertical-align: text-top;
+}
+.navbar {
+    background-color: #00a2ad;
+}
+.brandy{
+    color:whitesmoke;
+}
+
+.category-div:hover {
+    background-color: #324B4D; /* Green */
+    color: white;
+  }

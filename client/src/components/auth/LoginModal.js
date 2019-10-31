@@ -15,6 +15,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {login} from '../../actions/authActions';
 import {clearErrors} from '../../actions/errorActions';
+import '../../css/Utility.css';
 
 
 class LoginModal extends Component {
@@ -87,7 +88,7 @@ class LoginModal extends Component {
         return (
             <div>
                 
-                <NavLink onClick={this.toggle} href="#">
+                <NavLink className="brandy" onClick={this.toggle} href="#">
                     Login
                 </NavLink>
 

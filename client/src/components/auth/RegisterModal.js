@@ -15,6 +15,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {register} from '../../actions/authActions';
 import {clearErrors} from '../../actions/errorActions';
+import '../../css/Utility.css';
 
 
 class RegisterModal extends Component {
@@ -92,7 +93,7 @@ class RegisterModal extends Component {
         return (
             <div>
                 
-                <NavLink onClick={this.toggle} href="#">
+                <NavLink className="brandy" onClick={this.toggle} href="#">
                     Register
                 </NavLink>
 

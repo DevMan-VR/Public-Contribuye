@@ -33,7 +33,8 @@ class AppNavbar extends Component {
     render(){
 
         const {isAuthenticated, user} = this.props.auth;
-
+        console.log("logsiño");
+        console.log(this.props.item);
         const authLinks = (
             <Fragment>
                 <NavItem>
@@ -60,9 +61,9 @@ class AppNavbar extends Component {
 
         return (
             <div>
-                <Navbar color="dark" dark expand="sm" className="mb-5">
+                <Navbar expand="sm" className="mb-5">
                     <Container>
-                        <NavbarBrand href="/">ShoppingList</NavbarBrand>
+                        <NavbarBrand className="brandy" href="/">Contribuye</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
@@ -80,7 +81,8 @@ class AppNavbar extends Component {
     }
 }
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    item: state.item
 })
 
 export default connect(mapStateToProps, null)(AppNavbar);
