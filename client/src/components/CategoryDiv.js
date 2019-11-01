@@ -17,7 +17,7 @@ const CategoryDiv = ({title, category, itemList}) => (
                     <div>
                         <ul>
                             {itemList.map(item => (
-                                <li>{item}</li>
+                                <li key={item.title}>{item}</li>
                             ))}
                         </ul>
                     </div>

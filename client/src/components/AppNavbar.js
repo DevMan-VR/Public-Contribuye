@@ -14,6 +14,7 @@ import LoginModal from './auth/LoginModal';
 import Logout from './auth/Logout';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import '../css/Utility.css';
 
 class AppNavbar extends Component {
     state = {
@@ -34,7 +35,7 @@ class AppNavbar extends Component {
 
         const {isAuthenticated, user} = this.props.auth;
         console.log("logsiño");
-        console.log(this.props);
+        console.log(this.props.item.category);
         const authLinks = (
             <Fragment>
                 <NavItem>
@@ -61,7 +62,7 @@ class AppNavbar extends Component {
 
         return (
             <div>
-                <Navbar expand="sm" >
+                <Navbar expand="sm" className={this.props.item.category ? this.props.item.category : 'contribuye'} >
                     <Container>
                         <NavbarBrand className="brandy" href="/">Contribuye</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
