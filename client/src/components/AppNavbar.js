@@ -34,7 +34,7 @@ class AppNavbar extends Component {
 
         const {isAuthenticated, user} = this.props.auth;
         console.log("logsiño");
-        console.log(this.props.item);
+        console.log(this.props);
         const authLinks = (
             <Fragment>
                 <NavItem>
@@ -61,7 +61,7 @@ class AppNavbar extends Component {
 
         return (
             <div>
-                <Navbar expand="sm" className="mb-5">
+                <Navbar expand="sm" >
                     <Container>
                         <NavbarBrand className="brandy" href="/">Contribuye</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />

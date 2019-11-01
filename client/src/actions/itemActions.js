@@ -1,4 +1,4 @@
-import {GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING} from './types';
+import {GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY} from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
 import {returnErrors} from './errorActions';
@@ -6,7 +6,7 @@ import {returnErrors} from './errorActions';
 export const getItems = () => dispatch => {
     dispatch(setItemsLoading());
     axios
-        .get('/api/items')
+        .get('/api/services')
         .then(res=> 
             dispatch({
                 type: GET_ITEMS,
@@ -18,7 +18,7 @@ export const getItems = () => dispatch => {
 
 export const deleteItem = id => (dispatch, getState) => {
     axios
-        .delete(`api/items/${id}`, tokenConfig(getState))
+        .delete(`api/services/${id}`, tokenConfig(getState))
         .then(res => 
             dispatch({
                 type: DELETE_ITEM,
@@ -31,7 +31,7 @@ export const deleteItem = id => (dispatch, getState) => {
 
 export const addItem = item => (dispatch, getState) => {
     axios
-        .post('/api/items', item, tokenConfig(getState))
+        .post('/api/services', item, tokenConfig(getState))
         .then(res => 
             dispatch({
                 type: ADD_ITEM,
@@ -48,3 +48,9 @@ export const setItemsLoading = () => {
         type: ITEMS_LOADING
     };
 };
+
+export const setCategory = (category) => {
+    return {
+        type: SET_CATEGORY
+    };
+}

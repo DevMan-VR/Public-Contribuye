@@ -1,4 +1,4 @@
-import {GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING} from '../actions/types';
+import {GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY} from '../actions/types';
 
 const initialState = {
     items: []
@@ -27,6 +27,11 @@ export default function(state = initialState, action) {
                 ...state,
                 loading: true
             }
+        case SET_CATEGORY:
+                return {
+                    ...state,
+                    category: action.payload
+                }
         default:
             return state;
     }

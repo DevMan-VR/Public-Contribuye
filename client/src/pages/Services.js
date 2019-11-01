@@ -1,17 +1,24 @@
-import React, {Fragment} from 'react';
+import React, {useEffect} from 'react';
 import {Container} from 'reactstrap';
 import ItemModal from '../components/ItemModal';
 import ServiceList from '../components/ServiceList';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import {setCategory} from '../actions/itemActions';
 
-const Services = () => (
-    <Container>
-        <ItemModal/>
-        <ServiceList/>
-    </Container>
-            
-)
+function Services(props) {
+   
+    useEffect( () =>{
+        console.log(props.match.params.category);
+        setCategory(props.match.params.category);
+    },[])
+
+   return(
+        <Container>
+            <ItemModal />
+            <ServiceList />
+        </Container>
+   )
+}
 
 
 export default Services;

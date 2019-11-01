@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {connect} from 'react-redux';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,7 +10,7 @@ import {Container} from 'reactstrap';
 import { Provider } from 'react-redux';
 import store from './store';
 import {loadUser} from './actions/authActions';
-
+import Services from './pages/Services';
 import Home from './pages/Home';
 
 
@@ -25,10 +26,10 @@ class App extends Component {
       <div className="container-fluid p-0">
         <Router>
           <Provider store={store}>
-            <AppNavbar />
+            <AppNavbar/>
               <Switch>
               <Route exact path="/" component={Home}/> />
-                <Route exact path="/service" component={Home} />
+                <Route exact path="/services/:category" component={Services} />
                 {/*<Route exact path="/signup" component={Signup} />
                 <Route exact path="/herogrid" component={HeroGrid} />
                 <Route exact path="/heroes/:id" component={Producto} />
@@ -42,6 +43,7 @@ class App extends Component {
   }
   
 }
+
 
 export default App;
 

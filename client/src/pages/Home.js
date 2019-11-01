@@ -1,19 +1,28 @@
 import React, {Component} from 'react';
 import CategoryDiv from '../components/CategoryDiv';
 import '../css/Utility.css'
-
+import Carrusel from '../components/Carousel';
 const Home = () => (
 
-    <div className="container-fluid p-0">
+    <div className="container-fluid p-0 " style={{backgroundColor:'#f9f7f6'}}>
         {/** Carousel */}
-        <div className="row" >
-
+        <div className="row" style={{height:'33em '}} >
+            <Carrusel/>
+        
         </div>
+
         {/** End Carousel */}
         {/** Section Category */}
         <div className="row">
-            <div className="container p-0" style={{backgroundColor:'#f9f7f6'}}>
-                <div className="row">
+        
+            <div className="container p-0" >
+            <hr/>
+
+            <div className="row mb-3">
+                <h2 style={{color:'gray', margin: 'auto'}}>Categorias</h2>
+            </div>
+            <hr/>
+                <div className="row w-100">
                     <div className={"col-3 p-0"}>
                         <CategoryDiv
                             title="Salud"
@@ -45,7 +54,7 @@ const Home = () => (
                     </div>
 
                 </div>
-                <div className="row">
+                <div className="row w-100">
                     <div className="col-3 p-0">
                     <CategoryDiv
                         title="Eventos"

@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {getItems, deleteItem} from '../actions/itemActions';
 import PropTypes from 'prop-types';
 
-class ShoppingList extends Component {
+class ServiceList extends Component {
 
     static propTypes = {
         getItems: PropTypes.func.isRequired,
@@ -71,4 +71,4 @@ const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated
 })
 
-export default connect(mapStateToProps, { getItems, deleteItem}) (ShoppingList);
+export default connect(mapStateToProps, { getItems, deleteItem}) (ServiceList);
