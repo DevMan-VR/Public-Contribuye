@@ -4,6 +4,8 @@ import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import {connect} from 'react-redux';
 import {getItems, deleteItem} from '../actions/itemActions';
 import PropTypes from 'prop-types';
+import ServiceItem from './ServiceItem';
+
 
 class ServiceList extends Component {
 
@@ -28,10 +30,10 @@ class ServiceList extends Component {
 
                 <ListGroup>
                     <TransitionGroup className="shopping-list">
-                        {items.map( ({_id, name}) => (
-                            <CSSTransition key={_id} timeout={500} classNames="fade">
-                                <ListGroupItem className="ml-0 pl-0 ">
-                                    {this.props.isAuthenticated ? 
+                        {items.map( (item) => (
+                            <CSSTransition key={item._id} timeout={500} classNames="fade">
+                                <ListGroupItem className="ml-0 p-0 border-0  ">
+                                    {/**{this.props.isAuthenticated ? 
                                     
                                         <Button 
                                         className="remove-btn"
@@ -46,7 +48,10 @@ class ServiceList extends Component {
                                         : null
 
                                     }
-                                    {name}
+                                {name}*/}
+
+                                <ServiceItem item={item}/>
+
                                 </ListGroupItem>
                             </CSSTransition>
                         ))}
