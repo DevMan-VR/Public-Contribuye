@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Container} from 'reactstrap';
-import ItemModal from '../components/ItemModal';
 import ServiceList from '../components/ServiceList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {setCategory} from '../actions/itemActions';
@@ -18,7 +17,6 @@ class Services extends Component {
     render(){
         return(
             <Container>
-                <ItemModal />
                 <ServiceList />
             </Container>
        )

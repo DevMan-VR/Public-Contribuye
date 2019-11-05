@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {
     Button,
     Modal,
@@ -59,45 +59,114 @@ class ItemModal extends Component {
                         color="dark"
                         style={{marginBottom: '2rem'}}
                         onClick={this.toggle}
-                    >Add Item</Button>    
+                    >Contribuye</Button>    
                 :
-                    <h4 className ="mb-3 ml-4">Please log in to manage items</h4>
+                    null
                 }
 
                 
 
-                <Modal
-                    isOpen={this.state.modal}
-                    toggle={this.toggle}
-                >
-                  
-                    <ModalHeader toggle={this.toggle}>Add to Shopping List</ModalHeader>
-                    <ModalBody>
-                        <Form onSubmit={this.onSubmit}>
-                            <FormGroup>
-                                <Label for="item">Item</Label>
-                                <Input
-                                    type="text"
-                                    name="name"
-                                    id="item"
-                                    placeholder="Add shopping item"
-                                    onChange={this.onChange}
-                                
-                                />
-                                <Button
-                                    color="dark"
-                                    style={{marginTop:'2rem'}}
-                                    block
-                                
-                                >
-                                    Add Item
-                                </Button>
+<Modal
+            isOpen={this.state.modal}
+            toggle={this.toggle}
+            >
+
+            <ModalHeader toggle={this.toggle}>Add to Shopping List</ModalHeader>
+            <ModalBody>
+                <Form onSubmit={this.onSubmit}>
+                    <FormGroup>
+                        <legend>Titulo de Servicio</legend>
+                        <Input
+                            type="text"
+                            name="title"
+                            id="title"
+                            placeholder="Titulo del servicio"
+                            onChange={this.onChange}
+                        
+                        />
+                        <legend>Descripción de Servicio</legend>
+                        
+                        <Input
+                            type="textarea"
+                            name="description"
+                            id="description"
+                            placeholder="Descripcion de servicio"
+                            onChange={this.onChange}
+                        
+                        />
+
+                        <FormGroup tag="serviceType">
+                            <legend>Tipo de Servicio</legend>
+                            <FormGroup check>
+                            <Label check>
+                                <Input type="radio" name="serviceType" value="free" id="serviceType" onChange={this.onChange} />{' '}
+                                Voluntario
+                            </Label>
                             </FormGroup>
-                        </Form>
-                    </ModalBody>
+                            <FormGroup check>
+                            <Label check>
+                                <Input type="radio" name="serviceType" value="offer" id="serviceType" onChange={this.onChange} />{' '}
+                                Rebajado
+                            </Label>
+                            </FormGroup>
+                        </FormGroup>
+                    {
+                        this.state.serviceType === 'offer' ? 
+                        <Fragment>
+                        <FormGroup tag="p_method">
+                            <legend>Tipo de Pago</legend>
+                            <FormGroup check>
+                            <Label check>
+                                <Input type="radio" name="p_method" id="p_method" onChange={this.onChange} />{' '}
+                                Débito
+                            </Label>
+                            </FormGroup>
+                            <FormGroup check>
+                            <Label check>
+                                <Input type="radio" name="p_method" id="p_method" onChange={this.onChange}/>{' '}
+                                Efectivo
+                            </Label>
+                            </FormGroup>
+                            <FormGroup check>
+                            <Label check>
+                                <Input type="radio" name="p_method" id="p_method" onChange={this.onChange}/>{' '}
+                                Transferencia
+                            </Label>
+                            </FormGroup>
+                        </FormGroup>
+
+                        <legend>Precio de Servicio</legend>
+                        <Input
+                            type="number"
+                            name="p_amount"
+                            id="p_amount"
+                            placeholder="Ingresa el precio del servicio"
+                            onChange={this.onChange}
+                        
+                        />
+                        </Fragment>
+
+                        :
+
+                        <Fragment></Fragment>
+                    }
+                        
 
 
-                </Modal>
+                        <Button
+                            color="dark"
+                            style={{marginTop:'2rem'}}
+                            block
+                        
+                        >
+                            Add Item
+                        </Button>
+                    </FormGroup>
+                </Form>
+            </ModalBody>
+
+
+            </Modal>
             </div>
         );
     }

@@ -10,11 +10,12 @@ const User = require('../../models/User');
 // @desc Register new user
 // @access Public
 router.post('/',(req,res) =>{
-    const {name, email, password, isContributor, phoneNumber} = req.body;
+    const {name, email, password, isContributor, phoneNumber, address, city, country, timezone, profileImgUrl, experience, registerDate, achievements, serviceRequests,company} = req.body;
+    
 
     // Simple validation
-    if(!name || !email || !password || !isContributor || !phoneNumber){
-        return res.status(400).json({msg: 'Porfavor rellene todos los campos'});
+    if(!name || !email || !password || isContributor===null || !phoneNumber){
+        return res.status(400).json({msg: 'El body es: '+name+' '+email+' '+password+' '+isContributor+' '+phoneNumber+' '+address+' '+city+' '+country+' '+timezone+' '+profileImgUrl+' '+experience+' '+registerDate+' '+achievements+' '+serviceRequests+' '+company});
     }
     //Check for existing user
     User.findOne({email: email})
@@ -26,7 +27,17 @@ router.post('/',(req,res) =>{
                 email,
                 password,
                 isContributor,
-                phoneNumber
+                phoneNumber,
+                address,
+                city,
+                country,
+                timezone,
+                profileImgUrl,
+                experience,
+                registerDate,
+                achievements,
+                serviceRequests,
+                company
             })
 
             // Create salt & hash password
@@ -49,7 +60,18 @@ router.post('/',(req,res) =>{
                                             id: user.id,
                                             name: user.name,
                                             email: user.email,
-                                            isContributor: user.isContributor
+                                            isContributor: user.isContributor,
+                                            phoneNumber: user.phoneNumber,
+                                            address: user.address,
+                                            city: user.city,
+                                            country: user.country,
+                                            timezone: user.timezone,
+                                            profileImgUrl: user.profileImgUrl,
+                                            experience: user.experience,
+                                            registerDate: user.registerDate,
+                                            achievements: user.achievements,
+                                            serviceRequests: user.serviceRequests,
+                                            company: user.company
                                         }
                                     });
                                 }

@@ -50,7 +50,7 @@ class ServiceList extends Component {
                                     }
                                 {name}*/}
 
-                                <ServiceItem item={item}/>
+                                <ServiceItem elem={item}/>
 
                                 </ListGroupItem>
                             </CSSTransition>

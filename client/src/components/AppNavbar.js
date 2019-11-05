@@ -15,10 +15,20 @@ import Logout from './auth/Logout';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import '../css/Utility.css';
+import ItemModal from '../components/ItemModal';
+
 
 class AppNavbar extends Component {
     state = {
-        isOpen: false
+        modal: false,
+        title: 'none',
+        category: this.props.item.category,
+        subcategory: 'none',
+        serviceType: 'none',
+        p_method: 'none',
+        p_amount: 0,
+        location: 'none',
+        until: 'none'
     }
 
     static propTypes = {
@@ -30,7 +40,30 @@ class AppNavbar extends Component {
             isOpen: !this.state.isOpen
         });
     }
+    onChange = async e => {
+        await this.setState({[e.target.name]: e.target.value })
+        console.log(this.state);
+    }
+    onSubmit = e => {
+        e.preventDefault();
+        const newItem = {
+            title: this.state.name,
+            description: this.state.description,
+            category: this.state.category,
+            subcategory: this.state.subcategory,
+            serviceType: this.state.serviceType,
+            p_method: this.state.p_method,
+            p_amount: this.state.p_amount,
+            location: this.state.location,
+            until: this.state.until
+        }
 
+        //Add item via addItem action
+        this.props.addItem(newItem);
+
+        //Close modal
+        this.toggle();
+    }
     render(){
 
         const {isAuthenticated, user} = this.props.auth;
@@ -68,6 +101,7 @@ class AppNavbar extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
+                                <ItemModal />
                                 {isAuthenticated ? authLinks : guestLinks}
                                 
                             </Nav>

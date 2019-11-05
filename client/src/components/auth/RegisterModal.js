@@ -9,7 +9,8 @@ import {
     Label,
     Input,
     NavLink,
-    Alert
+    Alert,
+    CustomInput
 } from 'reactstrap';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -23,8 +24,31 @@ class RegisterModal extends Component {
     state = {
         modal: false,
         name: '',
-        email: '',
         password: '',
+        email: '',
+        phoneNumber: '',
+        address: 'none',
+        country: 'none',
+        city: '',
+        timezone: 'none',
+        profileImgUrl: 'none',
+        isContributor: false,
+        experience: 0,
+        company: 'none',
+        registerDate: null,
+        achievements: [{
+            description: 'none',
+            value: 0,
+            iconUrl: 'none'
+
+        }],
+        serviceRequests: [{
+            idUserOfferer: 'none',
+            idUserRequester: 'none',
+            titleServiceOffered: 'none',
+            stateRequest: 'none'
+        }],
+        
         msg: null
     }
 
@@ -73,14 +97,28 @@ class RegisterModal extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        const {name, email, password} = this.state;
+        const {name, email, password, phoneNumber, city,address,country,timezone,profileImgUrl,isContributor,achievements,serviceRequests,experience,company,registerDate} = this.state;
 
         // Create user object
         const newUser = {
             name,
             email,
-            password
+            password,
+            phoneNumber,
+            city,
+            address,
+            country,
+            timezone,
+            profileImgUrl,
+            isContributor,
+            achievements,
+            serviceRequests,
+            experience,
+            company,
+            registerDate
         };
+
+        console.log(newUser);
 
         // Attempt to register
         this.props.register(newUser);
@@ -107,7 +145,7 @@ class RegisterModal extends Component {
                         {this.state.msg ? <Alert color="danger">{this.state.msg}</Alert> : null}
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
-                                <Label for="name">Name</Label>
+                                <Label for="name">Nombre</Label>
                                 <Input
                                     type="text"
                                     name="name"
@@ -139,6 +177,30 @@ class RegisterModal extends Component {
                                     onChange={this.onChange}
                                 
                                 />
+                                <Label for="phoneNumber">Teléfono Celular</Label>
+                                <Input
+                                    type="text"
+                                    name="phoneNumber"
+                                    id="phoneNumber"
+                                    placeholder="telefono celular"
+                                    className="mb-3"
+                                    onChange={this.onChange}
+                                
+                                />
+                                <Label for="city">Ciudad</Label>
+                                <Input
+                                    type="text"
+                                    name="city"
+                                    id="city"
+                                    placeholder="Ciudad"
+                                    className="mb-3"
+                                    onChange={this.onChange}
+                                
+                                />
+                                <Label for="name">¿Ofreces uno o mas Servicios?</Label>
+                                <CustomInput type="checkbox" id="isContributor" label="Si" value="true" onClick={this.onChange} />
+                                <CustomInput type="checkbox" id="isContributor" label="No" value="false" onClick={this.onChange} />
+
                                 <Button
                                     color="dark"
                                     style={{marginTop:'2rem'}}

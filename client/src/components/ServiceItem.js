@@ -17,7 +17,7 @@ class ServiceItem extends Component  {
 
     state = {
         modal: false,
-        name: ''
+        title: 'none',
     }
 
     toggle = () => {
@@ -27,15 +27,24 @@ class ServiceItem extends Component  {
 
     }
 
-    onChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
+
+    onChange = async e => {
+        await this.setState({[e.target.name]: e.target.value })
+        console.log(this.state);
     }
+  
     onSubmit = e => {
         e.preventDefault();
         const newItem = {
-            name: this.state.name
+            title: this.state.name,
+            description: this.state.description,
+            category: this.state.category,
+            subcategory: this.state.subcategory,
+            serviceType: this.state.serviceType,
+            p_method: this.state.p_method,
+            p_amount: this.state.p_amount,
+            location: this.state.location,
+            until: this.state.until
         }
 
         //Add item via addItem action
@@ -45,9 +54,14 @@ class ServiceItem extends Component  {
         this.toggle();
     }
 
+    submitRequest = () => {
+        console.log("despachando nueva request de servicio")
+        this.toggle();
+    }
+
 
     render(){
-        console.log(this.props);
+        console.log(this);
         return(
             <Fragment>
             <button className={"w-100 h-100 item-div "} onClick={this.toggle}>
@@ -76,40 +90,61 @@ class ServiceItem extends Component  {
             </button>
 
             
-                <Modal
+            <Modal
             isOpen={this.state.modal}
             toggle={this.toggle}
             >
 
-            <ModalHeader toggle={this.toggle}>Add to Shopping List</ModalHeader>
+            <ModalHeader toggle={this.toggle}>{this.props.elem.title}</ModalHeader>
             <ModalBody>
-                <Form onSubmit={this.onSubmit}>
-                    <FormGroup>
-                        <Label for="item">Item</Label>
-                        <Input
-                            type="text"
-                            name="name"
-                            id="item"
-                            placeholder="Add shopping item"
-                            onChange={this.onChange}
-                        
-                        />
-                        <Button
-                            color="dark"
-                            style={{marginTop:'2rem'}}
-                            block
-                        
-                        >
-                            Add Item
-                        </Button>
-                    </FormGroup>
-                </Form>
+                
+                        <div className="container-fluid">
+                            <div className="row">
+
+                                <div className="col-8">
+                                    <div className="container-fluid">
+                                        <div className="row">
+                                            <p>{this.props.elem.title}</p>
+                                        </div>
+                                        <div className="row">
+                                            <p>{this.props.elem.description}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-4">
+                                    <p>
+                                        {this.props.elem.serviceType} 
+                                        <br></br>{this.props.elem.serviceType === "offer" ?  this.props.elem.p_method : null}
+                                        {/*this.state.elem.location*/} <br></br>
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <button className="w-100" onClick={this.submitRequest}>
+                                <h4>Solicitar</h4>
+
+                            </button>
+                            
+                        </div>
             </ModalBody>
 
 
             </Modal>
+             {/**
+                title: String
+                description: String
+                category: String
+                subcategory: String
+                serviceType: String
+                p_method:String
+                p_amount: String
+                location: String
+                until: String
+            */}
             </Fragment>
-            
+
+           
             
         )
     }

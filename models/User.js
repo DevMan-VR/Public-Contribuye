@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     name: {
         type: String,
-        required: true
     },
     email : {
         type: String,
@@ -17,11 +16,9 @@ const UserSchema = new Schema({
     },
     isContributor: {
         type: Boolean,
-        required: true
     },
     phoneNumber: {
         type: String,
-        required: true
     },
     company: {
         type: String,
