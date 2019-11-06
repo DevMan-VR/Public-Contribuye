@@ -12,7 +12,7 @@ import store from './store';
 import {loadUser} from './actions/authActions';
 import Services from './pages/Services';
 import Home from './pages/Home';
-
+import Home2 from './pages/Home2';
 
 
 class App extends Component {
@@ -28,7 +28,7 @@ class App extends Component {
           <Provider store={store}>
             <AppNavbar/>
               <Switch>
-              <Route exact path="/" component={Home}/> />
+              <Route exact path="/" component={Home2}/> />
                 <Route exact path="/services/:category" component={Services} />
                 {/*<Route exact path="/signup" component={Signup} />
                 <Route exact path="/herogrid" component={HeroGrid} />
