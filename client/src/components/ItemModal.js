@@ -19,12 +19,14 @@ class ItemModal extends Component {
         modal: false,
         title: '',
         description: '',
-        category: this.props.item.category,
+        category: '',
         subcategory: 'none',
         service_type: 'none',
         p_method: 'none',
         p_amount: 0,
-        location: 'none'
+        location: 'none',
+        contact_phone: '',
+        contact_mail: ''
     }
 
     static propTypes = {
@@ -38,10 +40,11 @@ class ItemModal extends Component {
 
     }
 
-    onChange = (e) => {
-        this.setState({
+    onChange = async (e) => {
+        await this.setState({
             [e.target.name]: e.target.value
-        })
+        });
+        console.log(this.state);
     }
 
     onSubmit = e => {
@@ -55,7 +58,9 @@ class ItemModal extends Component {
             p_method: this.state.p_method,
             p_amount: this.state.p_amount,
             location: this.state.location,
-            until: this.state.until
+            until: this.state.until,
+            contact_phone: this.state.contact_phone,
+            contact_mail: this.state.contact_mail
         }
 
 
@@ -88,7 +93,7 @@ class ItemModal extends Component {
             toggle={this.toggle}
             >
 
-            <ModalHeader toggle={this.toggle}>Add to Shopping List</ModalHeader>
+            <ModalHeader toggle={this.toggle}>Agregar un nuevo Servicio</ModalHeader>
             <ModalBody>
                 <Form onSubmit={this.onSubmit}>
                     <FormGroup>
@@ -112,6 +117,26 @@ class ItemModal extends Component {
                         
                         />
 
+                        <legend>Número de contacto</legend>
+                        <Input
+                            type="text"
+                            name="contact_phone"
+                            id="contact_phone"
+                            placeholder="Ingresa tu numero de contacto"
+                            onChange={this.onChange}
+                        
+                        />
+
+                        <legend>Mail de contacto</legend>
+                        <Input
+                            type="text"
+                            name="contact_mail"
+                            id="contact_mail"
+                            placeholder="Ingresa tu correo de contacto"
+                            onChange={this.onChange}
+                        
+                        />
+
                         <FormGroup tag="service_type">
                             <legend>Tipo de Servicio</legend>
                             <FormGroup check>
@@ -128,7 +153,7 @@ class ItemModal extends Component {
                             </FormGroup>
                         </FormGroup>
                     {
-                        this.state.serviceType === 'offer' ? 
+                        this.state.service_type === 'offer' ? 
                         <Fragment>
                         <FormGroup tag="p_method">
                             <legend>Tipo de Pago</legend>

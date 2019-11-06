@@ -107,7 +107,13 @@ class ServiceItem extends Component  {
                                             <p>{this.props.elem.title}</p>
                                         </div>
                                         <div className="row">
-                                            <p>{this.props.elem.description}</p>
+                                            <p>
+                                                {this.props.elem.description}<br></br>
+                                                {this.props.elem.contact_phone}<br></br>
+                                                {this.props.elem.contact_mail}
+
+                                            </p>
+                                            
                                         </div>
                                     </div>
                                 </div>

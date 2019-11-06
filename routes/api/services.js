@@ -44,7 +44,9 @@ router.post('/',auth,(req,res) => {
         until: req.body.until,
         service_type: req.body.service_type,
         p_amount: req.body.p_amount,
-        p_method: req.body.p_method
+        p_method: req.body.p_method,
+        contact_phone: req.body.contact_phone,
+        contact_mail: req.body.contact_mail
 
     });
     newService.save().then(service=>res.json(service));

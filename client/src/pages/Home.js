@@ -23,7 +23,7 @@ const Home = () => (
             </div>
             <hr/>
                 <div className="row w-100">
-                    <div className={"col-3 p-0"}>
+                    <div className={"col-lg-3 col-md-6 col-xs-12 p-0"}>
                         <CategoryDiv
                             title="Salud"
                             category="health"
@@ -31,21 +31,21 @@ const Home = () => (
 
                         />
                     </div>
-                    <div className="col-3 p-0">
+                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
                         <CategoryDiv
                             title="Leyes"
                             category="law"
                             itemList={["Apoyo Legal", "Derechos Humanos", "Apoyo Denuncias y Más..."]}
                         />
                     </div>
-                    <div className="col-3 p-0">
+                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
                         <CategoryDiv
                             title="Tecnologia"
                             category="tech"
                             itemList={["Paginas web de abastecimiento", "Aplicaciones móviles para la democracia", "Más..."]}
                         />
                     </div>
-                    <div className="col-3 p-0">
+                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
                     <CategoryDiv
                         title="Aprendizaje"
                         category="learning"
@@ -55,28 +55,28 @@ const Home = () => (
 
                 </div>
                 <div className="row w-100">
-                    <div className="col-3 p-0">
+                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
                     <CategoryDiv
                         title="Eventos"
                         category="events"
                         itemList={["Culturales","Sociales","Más..."]}
                     />
                     </div>
-                    <div className="col-3 p-0">
+                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
                     <CategoryDiv
                         title="Negocios Locales"
                         category="local-market"
                         itemList={["Comida","Productos","Servicios Rebajados y más..."]}
                     />
                     </div>
-                    <div className="col-3 p-0">
+                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
                     <CategoryDiv
                         title="Ofertas y Rebajas"
                         category="offers"
                         itemList={["Productos"]}
                     />
                     </div>
-                    <div className="col-3 p-0">
+                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
                     <CategoryDiv
                         title="Otros"
                         category="others"

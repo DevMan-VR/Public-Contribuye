@@ -62,10 +62,13 @@
 .brandy{
     color:whitesmoke;
 }
+.brandy:hover{
+    color:gold;
+}
 
 .category-div:hover {
     background-color: #324B4D; /* Green */
-    color: white;
+    color: gold;
   }
   .carousel-item > img { 
     width: 100%; 

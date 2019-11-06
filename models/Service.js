@@ -22,8 +22,11 @@ const ServiceSchema = new Schema({
     },
     
         
-        p_amount: { type: Number  },
-        p_method: { type: String},
+    p_amount: { type: Number  },
+    p_method: { type: String},
+
+    contact_phone: {type: String},
+    contact_mail: {type: String},
 
     location: {
         type: String,

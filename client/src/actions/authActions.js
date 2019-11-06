@@ -70,7 +70,7 @@ export const login = ({email, password}) => dispatch => {
     // Request body
     const body = JSON.stringify({email, password});
     //console.log(`header: ${config.headers} body: ${body}`);
-    axios.post('/api/auth', body, config)
+    axios.post('/api/auth/login', body, config)
         .then(res => dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
