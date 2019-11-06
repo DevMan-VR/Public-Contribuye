@@ -3,8 +3,6 @@ const app = express();
 const mongoose = require('mongoose');
 const config = require('config');
 
-const users = 
-
 //Bodyparser Middleware
 app.use(express.json());
 

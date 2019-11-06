@@ -24,7 +24,9 @@ router.get('/',(req,res) =>{
 // @desc Get services from category
 // @access Public
 router.get('/:category',(req,res) =>{
-    Service.find({ category: res.params.category })
+    console.log(req.params.category);
+    let regexp = new RegExp("^" + req.params.category);
+    Service.find({category: regexp})
         .sort({date:-1}) //descending
         .then(services => res.json(services))
 });
@@ -40,10 +42,9 @@ router.post('/',auth,(req,res) => {
         subcategory: req.body.subcategory,
         location: req.body.location,
         until: req.body.until,
-
-            serviceType: req.body.payment.serviceType,
-            p_amount: req.body.payment.p_amount,
-            p_method: req.body.payment.p_method
+        service_type: req.body.service_type,
+        p_amount: req.body.p_amount,
+        p_method: req.body.p_method
 
     });
     newService.save().then(service=>res.json(service));

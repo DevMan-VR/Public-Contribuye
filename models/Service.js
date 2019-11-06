@@ -15,13 +15,15 @@ const ServiceSchema = new Schema({
         type: String,
         required: true
     },
+    service_type: { type: String },
+
     subcategory: {
         type: String,
     },
     
-        serviceType: { type: String, required: true },
-        p_amount: { type: Number, required: true },
-        p_method: { type: String, required: true},
+        
+        p_amount: { type: Number  },
+        p_method: { type: String},
 
     location: {
         type: String,

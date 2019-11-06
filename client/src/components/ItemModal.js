@@ -17,7 +17,14 @@ class ItemModal extends Component {
 
     state = {
         modal: false,
-        name: ''
+        title: '',
+        description: '',
+        category: this.props.item.category,
+        subcategory: 'none',
+        service_type: 'none',
+        p_method: 'none',
+        p_amount: 0,
+        location: 'none'
     }
 
     static propTypes = {
@@ -40,21 +47,31 @@ class ItemModal extends Component {
     onSubmit = e => {
         e.preventDefault();
         const newItem = {
-            name: this.state.name
+            title: this.state.title,
+            description: this.state.description,
+            category: this.props.item.category,
+            subcategory: this.state.subcategory,
+            service_type: this.state.service_type,
+            p_method: this.state.p_method,
+            p_amount: this.state.p_amount,
+            location: this.state.location,
+            until: this.state.until
         }
+
 
         //Add item via addItem action
         this.props.addItem(newItem);
-
+        console.log(newItem);
         //Close modal
         this.toggle();
     }
 
     render () {
+        //console.log(this.props.item.category);
         return (
             <div>
 
-                {this.props.isAuthenticated ? 
+                {this.props.isAuthenticated && this.props.item.category ? 
                     <Button
                         color="dark"
                         style={{marginBottom: '2rem'}}
@@ -95,17 +112,17 @@ class ItemModal extends Component {
                         
                         />
 
-                        <FormGroup tag="serviceType">
+                        <FormGroup tag="service_type">
                             <legend>Tipo de Servicio</legend>
                             <FormGroup check>
                             <Label check>
-                                <Input type="radio" name="serviceType" value="free" id="serviceType" onChange={this.onChange} />{' '}
+                                <Input type="radio" name="service_type" value="free" id="service_type" onChange={this.onChange} />{' '}
                                 Voluntario
                             </Label>
                             </FormGroup>
                             <FormGroup check>
                             <Label check>
-                                <Input type="radio" name="serviceType" value="offer" id="serviceType" onChange={this.onChange} />{' '}
+                                <Input type="radio" name="service_type" value="offer" id="service_type" onChange={this.onChange} />{' '}
                                 Rebajado
                             </Label>
                             </FormGroup>

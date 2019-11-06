@@ -6,15 +6,16 @@ import {setCategory} from '../actions/itemActions';
 import {connect} from 'react-redux';
 
 class Services extends Component {
-   componentDidMount(){
+   componentWillMount(){
        console.log("Probando123");
-       
        const {category} = this.props.match.params;
        console.log(category);
        this.props.setCategory(category);
+       
        //this.state.setCategory(category);
    }
     render(){
+        
         return(
             <Container>
                 <ServiceList />

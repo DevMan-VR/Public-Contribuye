@@ -16,7 +16,7 @@ class ServiceList extends Component {
     };
 
     componentDidMount(){
-        this.props.getItems();
+        this.props.getItems(this.props.item.category);
     }
 
     onDeleteClick = (id) => {
