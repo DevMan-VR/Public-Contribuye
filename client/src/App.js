@@ -12,6 +12,7 @@ import store from './store';
 import {loadUser} from './actions/authActions';
 import Services from './pages/Services';
 import Home from './pages/Home';
+import ItemView from './pages/ItemView';
 
 
 
@@ -30,6 +31,7 @@ class App extends Component {
               <Switch>
               <Route exact path="/" component={Home}/> />
                 <Route exact path="/services/:category" component={Services} />
+                <Route exact path="/services/:category/:id" component={ItemView}/>
                 {/*<Route exact path="/signup" component={Signup} />
                 <Route exact path="/herogrid" component={HeroGrid} />
                 <Route exact path="/heroes/:id" component={Producto} />
