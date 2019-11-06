@@ -72,7 +72,7 @@ class ItemModal extends Component {
     }
 
     render () {
-        //console.log(this.props.item.category);
+        //console.asdasdlog(this.props.item.category);
         return (
             <div>
 
