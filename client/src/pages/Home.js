@@ -15,7 +15,7 @@ const Home = () => (
         {/** Section Category */}
         <hr/>
             <div className="row mb-3">
-                <h2 style={{color:'gray', margin: 'auto'}}>Categorias</h2>
+                <h2 style={{color:'gray', margin: 'auto' }}>Categorias</h2>
             </div>
         <hr/>
 

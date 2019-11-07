@@ -48,10 +48,23 @@
 }
 .others-item{}
 
+.item-div
+{
+    color: white;
+    text-shadow: 2px 2px 2px rgb(70, 69, 69);
+}
+.item-div:hover{
+    background-color:  #324B4D;
+    color: white;
+    text-shadow: 5px 5px 5px  rgb(70, 69, 69);
+}
+
 .category-div{
     margin: top;
     width: 30ch;
     height: 30ch;
+    box-shadow: 8px 8px 10px grey;
+    text-shadow: 1px 1px 1px rgb(46, 45, 45);
 }
 
 .category-div li {
@@ -68,13 +81,19 @@
     background-color: #00a2ad;
 }
 .brandy{
-    color:whitesmoke;
+    color: white;
+    text-shadow: 1px 1px 1px rgb(70, 69, 69);
+
+}
+.brandy:hover{
+    color: white;
+    text-shadow: 5px 5px 5px  rgb(70, 69, 69);
 }
 
 .category-div:hover {
     background-color: #324B4D; /* Green */
     color: white;
-  }
+}
   .carousel-item > img { 
     width: 100%; 
     height: 33em; 

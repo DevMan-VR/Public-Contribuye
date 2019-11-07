@@ -39,7 +39,7 @@ function CategoryDiv({title, category, itemList}){
         <NavLink to={`/services/${category}`} activeClassName="selected">
             <button className={"category-div "+category} >
                 
-                <div >
+                <div>
                     <div>
                     <h3>
                         {title}

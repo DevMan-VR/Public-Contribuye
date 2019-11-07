@@ -64,17 +64,17 @@ class ServiceItem extends Component  {
         console.log(this);
         return(
             <Fragment>
-            <button className={"w-100 h-100 item-div "} onClick={this.toggle}>
+            <button className={"w-100 h-100 "+this.props.elem.category+" item-div"} onClick={this.toggle}>
             <div >
                 <div>
                 <h3 style={{textAlign:"left",paddingLeft:"3.7rem"}}>
-                    Titulo
+                    {this.props.elem.title}
                 </h3>
                 </div>
                 <div className="container-fluid">
                     <div className="row">
                     <div className="col-9">
-                        <p style={{textAlign:"left",paddingLeft:"3rem"}}>Descripcion breve</p>
+                        <p style={{textAlign:"left",paddingLeft:"3rem"}}>{this.props.elem.description}</p>
                     </div>
                     <div className="col-3">
                         <p style={{textAlign:"right", paddingRight:"1rem"}}>
