@@ -98,7 +98,7 @@ class AppNavbar extends Component {
             <div>
                 <Navbar expand="sm" className={this.props.item.category ? this.props.item.category : 'contribuye'} >
                     <Container>
-                        <NavbarBrand className="brandy" href="/">Contribuye</NavbarBrand>
+                        <NavbarBrand className="brandy" href="/">Chile Contribuye</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
@@ -109,6 +109,18 @@ class AppNavbar extends Component {
                         </Collapse>
 
                     </Container>
+                </Navbar>
+                <Navbar className="underNavbar py-0">
+                    <NavLink href="/" className="brandy">Inicio</NavLink>
+                    <NavLink href="/services/health" className="brandy">Salud</NavLink>
+                    <NavLink href="/services/law" className="brandy">Leyes</NavLink>
+                    <NavLink href="/services/tech" className="brandy">Tecnologia</NavLink>
+                    <NavLink href="/services/learning" className="brandy">Aprendizaje</NavLink>
+                    <NavLink href="/services/events" className="brandy">Eventos</NavLink>
+                    <NavLink href="/services/local-market" className="brandy">Negocios Locales</NavLink>
+                    <NavLink href="/services/offers" className="brandy">Ofertas y Rebajas</NavLink>
+                    <NavLink href="/services/others" className="brandy">Otros</NavLink>
+
                 </Navbar>
             </div>
 

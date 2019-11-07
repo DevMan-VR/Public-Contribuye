@@ -6,6 +6,20 @@
     padding: 100px;
 }
 
+.underNavbar {
+    background-color: rgb(48, 48, 48);     
+}
+.home-footer{
+    text-align: center;
+    color: white;
+    padding: 30px;
+    box-shadow: 0px 20px 30px -5px rgb(0, 0, 0);
+    background:rgb(20, 20, 20);
+    height: 200px;
+    clear:both;
+    padding-top:20px;
+  }
+
 .health{
     background-color:#4BCDA1 ;
 }
@@ -54,7 +68,7 @@
     text-shadow: 2px 2px 2px rgb(70, 69, 69);
 }
 .item-div:hover{
-    background-color:  #324B4D;
+    filter:brightness(50%);
     color: white;
     text-shadow: 5px 5px 5px  rgb(70, 69, 69);
 }
@@ -96,7 +110,7 @@
 }
 
 .category-div:hover {
-    background-color: #324B4D; /* Green */
+    filter:brightness(50%);
     color: gold;
   }
   .carousel-item > img { 
