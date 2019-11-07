@@ -64,7 +64,7 @@ class ServiceItem extends Component  {
         console.log(this);
         return(
             <Fragment>
-            <button className={"w-100 h-100 item-div "} onClick={this.toggle}>
+            <button className={"w-100 h-100 "+this.props.elem.category+" item-div"} onClick={this.toggle}>
             <div >
                 <div>
                 <h3 style={{textAlign:"left",paddingLeft:"3.7rem"}}>

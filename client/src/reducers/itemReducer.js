@@ -1,4 +1,4 @@
-import {GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY} from '../actions/types';
+import {GET_ITEMS, GET_SINGLE_ITEM, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY} from '../actions/types';
 
 const initialState = {
     items: []
@@ -11,6 +11,11 @@ export default function(state = initialState, action) {
                 ...state,
                 items: action.payload,
                 loading: false
+            };
+        case GET_SINGLE_ITEM:
+            return {
+                ...state,
+                items: state.items.filter(item=>item._id === action.payload)
             };
         case DELETE_ITEM:
             return {

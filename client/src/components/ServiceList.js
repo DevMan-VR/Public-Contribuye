@@ -6,6 +6,9 @@ import {getItems, deleteItem} from '../actions/itemActions';
 import PropTypes from 'prop-types';
 import ServiceItem from './ServiceItem';
 
+const colors = {
+    
+}
 
 class ServiceList extends Component {
 
@@ -32,7 +35,7 @@ class ServiceList extends Component {
                     <TransitionGroup className="shopping-list">
                         {items.map( (item) => (
                             <CSSTransition key={item._id} timeout={500} classNames="fade">
-                                <ListGroupItem className="ml-0 p-0 border-0  ">
+                                <ListGroupItem className="ml-0 p-1 border-0">
                                     {/**{this.props.isAuthenticated ? 
                                     
                                         <Button 

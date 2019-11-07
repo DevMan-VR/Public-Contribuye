@@ -1,4 +1,4 @@
-import {GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY} from './types';
+import {GET_ITEMS, GET_SINGLE_ITEM, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY} from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
 import {returnErrors} from './errorActions';
@@ -14,6 +14,19 @@ export const getItems = category => dispatch => {
             })
         )
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
+};
+
+export const getSingleItem = (id,category) => (dispatch, getState) => {
+    axios
+        .get(`api/services/${category}/${id}`, tokenConfig(getState))
+        .then(res => 
+            dispatch({
+                type: GET_SINGLE_ITEM,
+                payload: id
+            })    
+        )
+        .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
+
 };
 
 export const deleteItem = id => (dispatch, getState) => {

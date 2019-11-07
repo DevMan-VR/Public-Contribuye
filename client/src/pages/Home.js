@@ -13,88 +13,55 @@ const Home = () => (
 
         {/** End Carousel */}
         {/** Section Category */}
-        <div className="row">
-        
-            <div className="container p-0" >
-            <hr/>
-
+        <hr/>
             <div className="row mb-3">
-                <h2 style={{color:'gray', margin: 'auto'}}>Categorias</h2>
+                <h2 style={{color:'gray', margin: 'auto' }}>Categorias</h2>
             </div>
-            <hr/>
-                <div className="row w-100">
-                    <div className={"col-lg-3 col-md-6 col-xs-12 p-0"}>
-                        <CategoryDiv
-                            title="Salud"
-                            category="health"
-                            itemList={["Terapia Psicologica","Consulta Nutricional","Más..."]}
+        <hr/>
 
-                        />
-                    </div>
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
-                        <CategoryDiv
-                            title="Leyes"
-                            category="law"
-                            itemList={["Apoyo Legal", "Derechos Humanos", "Apoyo Denuncias y Más..."]}
-                        />
-                    </div>
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
-                        <CategoryDiv
-                            title="Tecnologia"
-                            category="tech"
-                            itemList={["Paginas web de abastecimiento", "Aplicaciones móviles para la democracia", "Más..."]}
-                        />
-                    </div>
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
-                    <CategoryDiv
-                        title="Aprendizaje"
-                        category="learning"
-                        itemList={["Cursos", "Talleres","Seminarios y Más..."]}
-                    />
-                    </div>
-
-                </div>
-                <div className="row w-100">
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
-                    <CategoryDiv
-                        title="Eventos"
-                        category="events"
-                        itemList={["Culturales","Sociales","Más..."]}
-                    />
-                    </div>
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
-                    <CategoryDiv
-                        title="Negocios Locales"
-                        category="local-market"
-                        itemList={["Comida","Productos","Servicios Rebajados y más..."]}
-                    />
-                    </div>
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
-                    <CategoryDiv
-                        title="Ofertas y Rebajas"
-                        category="offers"
-                        itemList={["Productos"]}
-                    />
-                    </div>
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
-                    <CategoryDiv
-                        title="Otros"
-                        category="others"
-                        itemList={["Fotografia","Yoga","Deportes y más ..."]}
-                    />
-                    </div>
-
-                </div>
-
-            </div>
+        <div className="grid-container">
+            <CategoryDiv
+                title="Salud"
+                category="health"
+                itemList={["Terapia Psicologica","Consulta Nutricional","Más..."]}
+            />
+            <CategoryDiv
+                title="Leyes"
+                category="law"
+                itemList={["Apoyo Legal", "Derechos Humanos", "Apoyo Denuncias y Más..."]}
+            />
+            <CategoryDiv
+                title="Tecnologia"
+                category="tech"
+                itemList={["Paginas web de abastecimiento", "Aplicaciones móviles para la democracia", "Más..."]}
+            />
+            <CategoryDiv
+                title="Aprendizaje"
+                category="learning"
+                itemList={["Cursos", "Talleres","Seminarios y Más..."]}
+            />
+            <CategoryDiv
+                title="Eventos"
+                category="events"
+                itemList={["Culturales","Sociales","Más..."]}
+            />
+            <CategoryDiv
+                title="Negocios Locales"
+                category="local-market"
+                itemList={["Comida","Productos","Servicios Rebajados y más..."]}
+            />
+            <CategoryDiv
+                title="Ofertas y Rebajas"
+                category="offers"
+                itemList={["Productos"]}
+            />
+            <CategoryDiv
+                title="Otros"
+                category="others"
+                itemList={["Fotografia","Yoga","Deportes y más ..."]}
+            />
         </div>
-        
-
-        
-        {/** End Section Category */}
     </div>
-
-
 )
 
 export default Home;
