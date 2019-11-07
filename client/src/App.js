@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppNavbar from './components/AppNavbar'
+import Footer from './components/Footer'
 import {Container} from 'reactstrap';
 
 import { Provider } from 'react-redux';
@@ -39,6 +40,7 @@ class App extends Component {
 
               </Switch>
               </Provider>
+            <Footer/>
         </Router>
       </div> 
     );

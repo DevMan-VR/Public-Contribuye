@@ -61,7 +61,9 @@ const Home = () => (
                 itemList={["Fotografia","Yoga","Deportes y más ..."]}
             />
         </div>
+        
     </div>
+    
 )
 
 export default Home;

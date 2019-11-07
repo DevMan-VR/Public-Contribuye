@@ -17,7 +17,7 @@ class Services extends Component {
     render(){
         
         return(
-            <Container>
+            <Container style={{minHeight:"100px"}}>
                 <ServiceList />
             </Container>
        )
