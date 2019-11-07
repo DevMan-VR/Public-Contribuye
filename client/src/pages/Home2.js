@@ -21,7 +21,7 @@ const Home2 = () => (
                 <h2 style={{color:'gray', margin: 'auto'}}>Categorias</h2>
             </div>
             <hr/>
-                <div className="row w-100 mb-4 ml-4 ">
+                <div className="row w-100 mb-4 ml-3 ">
                     <div className={"col-lg-3 col-md-6 col-sm-12 p-0 mb-4"}>
                         <CategoryDiv
                             title="Salud"
