@@ -29,8 +29,9 @@ class App extends Component {
           <div className="container-fluid p-0" style={{minHeight: '100vh'}}>
           <Router>
             <Provider store={store}>
+            <AppNavbar/>
             <Switch>
-              <AppNavbar/>
+              
                 
                 <Route exact path="/" component={Home2}/> />
                   <Route exact path="/services/:category" component={Services} />
