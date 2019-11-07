@@ -19,7 +19,7 @@ class ServiceList extends Component {
     };
 
     componentDidMount(){
-        this.props.getItems();
+        this.props.getItems(this.props.item.category);
     }
 
     onDeleteClick = (id) => {
@@ -29,7 +29,7 @@ class ServiceList extends Component {
     render(){
         const {items} = this.props.item;
         return(
-            <Container>
+            <Container className="mt-3">
 
                 <ListGroup>
                     <TransitionGroup className="shopping-list">

@@ -78,7 +78,7 @@ class ServiceItem extends Component  {
                     </div>
                     <div className="col-3">
                         <p style={{textAlign:"right", paddingRight:"1rem"}}>
-                            Gratuito
+                            {this.props.elem.service_type}
                         </p>
                     </div>
                     </div>
@@ -107,7 +107,13 @@ class ServiceItem extends Component  {
                                             <p>{this.props.elem.title}</p>
                                         </div>
                                         <div className="row">
-                                            <p>{this.props.elem.description}</p>
+                                            <p>
+                                                {this.props.elem.description}<br></br>
+                                                {this.props.elem.contact_phone}<br></br>
+                                                {this.props.elem.contact_mail}
+
+                                            </p>
+                                            
                                         </div>
                                     </div>
                                 </div>

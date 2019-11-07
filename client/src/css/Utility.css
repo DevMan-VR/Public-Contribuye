@@ -89,11 +89,14 @@
     color: white;
     text-shadow: 5px 5px 5px  rgb(70, 69, 69);
 }
+.brandy:hover{
+    color:gold;
+}
 
 .category-div:hover {
     background-color: #324B4D; /* Green */
-    color: white;
-}
+    color: gold;
+  }
   .carousel-item > img { 
     width: 100%; 
     height: 33em; 
@@ -107,4 +110,8 @@
   .slide {
     width: 100%; 
     height: 100%;
+  }
+
+  .carousel-caption {
+    background-color: rgba(30, 30, 30, 0.5);
   }

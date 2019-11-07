@@ -3,10 +3,10 @@ import axios from 'axios';
 import { tokenConfig } from './authActions';
 import {returnErrors} from './errorActions';
 
-export const getItems = () => dispatch => {
+export const getItems = category => dispatch => {
     dispatch(setItemsLoading());
     axios
-        .get('/api/services')
+        .get('/api/services/'+category)
         .then(res=> 
             dispatch({
                 type: GET_ITEMS,

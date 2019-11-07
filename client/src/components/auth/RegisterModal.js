@@ -32,7 +32,7 @@ class RegisterModal extends Component {
         city: '',
         timezone: 'none',
         profileImgUrl: 'none',
-        isContributor: false,
+        isContributor: null,
         experience: 0,
         company: 'none',
         registerDate: null,
@@ -88,10 +88,11 @@ class RegisterModal extends Component {
         }
     }
 
-    onChange = (e) => {
-        this.setState({
+    onChange = async (e) => {
+        await this.setState({
             [e.target.name]: e.target.value
         })
+        console.log(this.state);
     }
 
     onSubmit = e => {
@@ -197,9 +198,22 @@ class RegisterModal extends Component {
                                     onChange={this.onChange}
                                 
                                 />
+                                
+                                <FormGroup tag="isContributor">
                                 <Label for="name">¿Ofreces uno o mas Servicios?</Label>
-                                <CustomInput type="checkbox" id="isContributor" label="Si" value="true" onClick={this.onChange} />
-                                <CustomInput type="checkbox" id="isContributor" label="No" value="false" onClick={this.onChange} />
+                                <FormGroup check>
+                                <Label check>
+                                    <Input type="radio" name="isContributor" value={true} id="isContributor" onChange={this.onChange} />{' '}
+                                    Si
+                                </Label>
+                                </FormGroup>
+                                <FormGroup check>
+                                <Label check>
+                                    <Input type="radio" name="isContributor" value={false} id="isContributor" onChange={this.onChange} />{' '}
+                                    No
+                                </Label>
+                                </FormGroup>
+                            </FormGroup>
 
                                 <Button
                                     color="dark"

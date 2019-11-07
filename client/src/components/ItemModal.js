@@ -17,7 +17,16 @@ class ItemModal extends Component {
 
     state = {
         modal: false,
-        name: ''
+        title: '',
+        description: '',
+        category: '',
+        subcategory: 'none',
+        service_type: 'none',
+        p_method: 'none',
+        p_amount: 0,
+        location: 'none',
+        contact_phone: '',
+        contact_mail: ''
     }
 
     static propTypes = {
@@ -31,30 +40,43 @@ class ItemModal extends Component {
 
     }
 
-    onChange = (e) => {
-        this.setState({
+    onChange = async (e) => {
+        await this.setState({
             [e.target.name]: e.target.value
-        })
+        });
+        console.log(this.state);
     }
 
     onSubmit = e => {
         e.preventDefault();
         const newItem = {
-            name: this.state.name
+            title: this.state.title,
+            description: this.state.description,
+            category: this.props.item.category,
+            subcategory: this.state.subcategory,
+            service_type: this.state.service_type,
+            p_method: this.state.p_method,
+            p_amount: this.state.p_amount,
+            location: this.state.location,
+            until: this.state.until,
+            contact_phone: this.state.contact_phone,
+            contact_mail: this.state.contact_mail
         }
+
 
         //Add item via addItem action
         this.props.addItem(newItem);
-
+        console.log(newItem);
         //Close modal
         this.toggle();
     }
 
     render () {
+        //console.asdasdlog(this.props.item.category);
         return (
             <div>
 
-                {this.props.isAuthenticated ? 
+                {this.props.isAuthenticated && this.props.item.category ? 
                     <Button
                         color="dark"
                         style={{marginBottom: '2rem'}}
@@ -71,7 +93,7 @@ class ItemModal extends Component {
             toggle={this.toggle}
             >
 
-            <ModalHeader toggle={this.toggle}>Add to Shopping List</ModalHeader>
+            <ModalHeader toggle={this.toggle}>Agregar un nuevo Servicio</ModalHeader>
             <ModalBody>
                 <Form onSubmit={this.onSubmit}>
                     <FormGroup>
@@ -95,23 +117,43 @@ class ItemModal extends Component {
                         
                         />
 
-                        <FormGroup tag="serviceType">
+                        <legend>Número de contacto</legend>
+                        <Input
+                            type="text"
+                            name="contact_phone"
+                            id="contact_phone"
+                            placeholder="Ingresa tu numero de contacto"
+                            onChange={this.onChange}
+                        
+                        />
+
+                        <legend>Mail de contacto</legend>
+                        <Input
+                            type="text"
+                            name="contact_mail"
+                            id="contact_mail"
+                            placeholder="Ingresa tu correo de contacto"
+                            onChange={this.onChange}
+                        
+                        />
+
+                        <FormGroup tag="service_type">
                             <legend>Tipo de Servicio</legend>
                             <FormGroup check>
                             <Label check>
-                                <Input type="radio" name="serviceType" value="free" id="serviceType" onChange={this.onChange} />{' '}
+                                <Input type="radio" name="service_type" value="free" id="service_type" onChange={this.onChange} />{' '}
                                 Voluntario
                             </Label>
                             </FormGroup>
                             <FormGroup check>
                             <Label check>
-                                <Input type="radio" name="serviceType" value="offer" id="serviceType" onChange={this.onChange} />{' '}
+                                <Input type="radio" name="service_type" value="offer" id="service_type" onChange={this.onChange} />{' '}
                                 Rebajado
                             </Label>
                             </FormGroup>
                         </FormGroup>
                     {
-                        this.state.serviceType === 'offer' ? 
+                        this.state.service_type === 'offer' ? 
                         <Fragment>
                         <FormGroup tag="p_method">
                             <legend>Tipo de Pago</legend>

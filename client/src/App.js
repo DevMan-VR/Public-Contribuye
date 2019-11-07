@@ -13,7 +13,7 @@ import {loadUser} from './actions/authActions';
 import Services from './pages/Services';
 import Home from './pages/Home';
 import ItemView from './pages/ItemView';
-
+import Home2 from './pages/Home2';
 
 
 class App extends Component {
