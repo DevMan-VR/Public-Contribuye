@@ -30,7 +30,7 @@ class App extends Component {
           <Provider store={store}>
             <AppNavbar/>
               <Switch>
-              <Route exact path="/" component={Home}/> />
+              <Route exact path="/" component={Home2}/> />
                 <Route exact path="/services/:category" component={Services} />
                 <Route exact path="/services/:category/:id" component={ItemView}/>
                 {/*<Route exact path="/signup" component={Signup} />

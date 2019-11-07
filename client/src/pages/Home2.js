@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import CategoryDiv from '../components/CategoryDiv2';
+import CategoryDiv from '../components/CategoryDiv';
 import '../css/Utility.css'
 import Carrusel from '../components/Carousel';
 const Home2 = () => (
@@ -17,12 +17,12 @@ const Home2 = () => (
             <div className="container p-0" >
             <hr/>
 
-            <div className="row mb-3">
+            <div className="row">
                 <h2 style={{color:'gray', margin: 'auto'}}>Categorias</h2>
             </div>
             <hr/>
-                <div className="row w-100">
-                    <div className={"col-lg-3 col-md-6 col-xs-12 p-0"}>
+                <div className="row w-100 mb-4 ml-3 ">
+                    <div className={"col-lg-3 col-md-6 col-sm-12 p-0 mb-4"}>
                         <CategoryDiv
                             title="Salud"
                             category="health"
@@ -30,21 +30,21 @@ const Home2 = () => (
 
                         />
                     </div>
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
+                    <div className="col-lg-3 col-md-6 col-sm-12 p-0 mb-4" >
                         <CategoryDiv
                             title="Leyes"
                             category="law"
                             itemList={["Apoyo Legal", "Derechos Humanos", "Apoyo Denuncias y Más..."]}
                         />
                     </div>
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
+                    <div className="col-lg-3 col-md-6 col-sm-12 p-0 mb-4">
                         <CategoryDiv
                             title="Tecnologia"
                             category="tech"
                             itemList={["Paginas web de abastecimiento", "Aplicaciones móviles para la democracia", "Más..."]}
                         />
                     </div>
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
+                    <div className="col-lg-3 col-md-6 col-sm-12 p-0" >
                     <CategoryDiv
                         title="Aprendizaje"
                         category="learning"
@@ -53,29 +53,29 @@ const Home2 = () => (
                     </div>
 
                 </div>
-                <div className="row w-100">
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
+                <div className="row w-100 ml-4 ">
+                    <div className="col-lg-3 col-md-6 col-sm-12 p-0 mb-4">
                     <CategoryDiv
                         title="Eventos"
                         category="events"
                         itemList={["Culturales","Sociales","Más..."]}
                     />
                     </div>
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
+                    <div className="col-lg-3 col-md-6 col-sm-12 p-0 mb-4">
                     <CategoryDiv
                         title="Negocios Locales"
                         category="local-market"
                         itemList={["Comida","Productos","Servicios Rebajados y más..."]}
                     />
                     </div>
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
+                    <div className="col-lg-3 col-md-6  col-sm-12 p-0 mb-4">
                     <CategoryDiv
                         title="Ofertas y Rebajas"
                         category="offers"
                         itemList={["Productos"]}
                     />
                     </div>
-                    <div className="col-lg-3 col-md-6 col-xs-12 p-0">
+                    <div className="col-lg-3 col-md-6 col-sm-12 p-0">
                     <CategoryDiv
                         title="Otros"
                         category="others"
