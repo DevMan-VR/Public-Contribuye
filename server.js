@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const config = require('config');
+const path = require('path');
 
 //Bodyparser Middleware
 app.use(express.json());

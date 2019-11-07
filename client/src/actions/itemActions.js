@@ -17,7 +17,7 @@ export const getItems = category => dispatch => {
 };
 
 export const getSingleItem = (id,category) => (dispatch, getState) => {
-    axios
+    /*axios
         .get(`api/services/${category}/${id}`, tokenConfig(getState))
         .then(res => 
             dispatch({
@@ -25,7 +25,7 @@ export const getSingleItem = (id,category) => (dispatch, getState) => {
                 payload: id
             })    
         )
-        .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
+        .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));*/
 
 };
 
