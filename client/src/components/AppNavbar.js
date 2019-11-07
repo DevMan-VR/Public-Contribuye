@@ -115,15 +115,15 @@ class AppNavbar extends Component {
                     <Navbar expand="sm" className="underNavbar py-0">
                         <NavbarToggler onClick={this.toggle} style={{backgroundColor:'white'}}/>
                         <Collapse isOpen={this.state.isOpen} navbar>
-                            <NavLink href="/" className="brandy">Inicio</NavLink>
-                            <NavLink href="/services/health" className="brandy">Salud</NavLink>
-                            <NavLink href="/services/law" className="brandy">Leyes</NavLink>
-                            <NavLink href="/services/tech" className="brandy">Tecnologia</NavLink>
-                            <NavLink href="/services/learning" className="brandy">Aprendizaje</NavLink>
-                            <NavLink href="/services/events" className="brandy">Eventos</NavLink>
-                            <NavLink href="/services/local-market" className="brandy">Negocios Locales</NavLink>
-                            <NavLink href="/services/offers" className="brandy">Ofertas y Rebajas</NavLink>
-                            <NavLink href="/services/others" className="brandy">Otros</NavLink>
+                            <NavLink href="/" className="brandy" activeClassName="selected">Inicio</NavLink>
+                            <NavLink href="/services/health" className="brandy" activeClassName="selected">Salud</NavLink>
+                            <NavLink href="/services/law" className="brandy" activeClassName="selected">Leyes</NavLink>
+                            <NavLink href="/services/tech" className="brandy" activeClassName="selected">Tecnologia</NavLink>
+                            <NavLink href="/services/learning" className="brandy" activeClassName="selected">Aprendizaje</NavLink>
+                            <NavLink href="/services/events" className="brandy" activeClassName="selected">Eventos</NavLink>
+                            <NavLink href="/services/local-market" className="brandy" activeClassName="selected">Negocios Locales</NavLink>
+                            <NavLink href="/services/offers" className="brandy" activeClassName="selected">Ofertas y Rebajas</NavLink>
+                            <NavLink href="/services/others" className="brandy" activeClassName="selected">Otros</NavLink>
 
                         </Collapse>
                     </Navbar>
