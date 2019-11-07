@@ -25,7 +25,7 @@ class App extends Component {
 
   render(){
     return (
-      <div className="container-fluid p-0">
+      <div className="container-fluid p-0" style={{minHeight: '100vh'}}>
         <Router>
           <Provider store={store}>
             <AppNavbar/>

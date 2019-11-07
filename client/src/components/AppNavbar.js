@@ -98,7 +98,7 @@ class AppNavbar extends Component {
             <div>
                 <Navbar expand="sm" className={this.props.item.category ? this.props.item.category : 'contribuye'} >
                     <Container>
-                        <NavbarBrand className="brandy" href="/">Chile Contribuye</NavbarBrand>
+                        <NavbarBrand className="brandy" href="/">Contribuye</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>

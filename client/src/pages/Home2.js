@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import CategoryDiv from '../components/CategoryDiv';
 import '../css/Utility.css'
 import Carrusel from '../components/Carousel';
