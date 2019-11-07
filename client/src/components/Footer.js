@@ -8,7 +8,7 @@ const Footer = () => (
             <Col xs="4">
                 <h5>Información de contacto</h5>
                 <br/>
-                Email: manu@manumail.com
+                Email: contribuyecomunidad@gmail.com
                 <br/>
                 Número telefónico: +56 9 35123052
             </Col>
@@ -19,7 +19,7 @@ const Footer = () => (
             <Col xs="4">
                <h5>Redes Sociales</h5>
                <br/>
-               Feisbuk‎‎‎‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‎‎Wasá‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎Istagran
+               Facebook ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‎‎Whatsapp ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎Instagram
                <br/>
             </Col>
           </Row>

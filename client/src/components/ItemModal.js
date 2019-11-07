@@ -81,7 +81,7 @@ class ItemModal extends Component {
                         color="dark"
                         style={{marginBottom: '2rem'}}
                         onClick={this.toggle}
-                    >Contribuye</Button>    
+                    >Agregar Servicio</Button>    
                 :
                     null
                 }

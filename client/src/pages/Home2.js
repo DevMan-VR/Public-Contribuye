@@ -4,7 +4,7 @@ import '../css/Utility.css'
 import Carrusel from '../components/Carousel';
 const Home2 = () => (
 
-    <div className="container-fluid p-0 " style={{backgroundColor:'#f9f7f6'}}>
+    <div className="container-fluid p-0 ">
         {/** Carousel */}
         <div className="row" style={{height:'33em '}} >
             <Carrusel/>

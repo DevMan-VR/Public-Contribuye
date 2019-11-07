@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {connect} from 'react-redux';
 
@@ -25,24 +25,28 @@ class App extends Component {
 
   render(){
     return (
-      <div className="container-fluid p-0" style={{minHeight: '100vh'}}>
-        <Router>
-          <Provider store={store}>
-            <AppNavbar/>
-              <Switch>
-              <Route exact path="/" component={Home2}/> />
-                <Route exact path="/services/:category" component={Services} />
-                <Route exact path="/services/:category/:id" component={ItemView}/>
-                {/*<Route exact path="/signup" component={Signup} />
-                <Route exact path="/herogrid" component={HeroGrid} />
-                <Route exact path="/heroes/:id" component={Producto} />
-                <Route exact path="/comics/:id" component={EditarProducto} />*/}
+      <Fragment>
+          <div className="container-fluid p-0" style={{minHeight: '100vh'}}>
+          <Router>
+            <Provider store={store}>
+              <AppNavbar/>
+                <Switch>
+                <Route exact path="/" component={Home2}/> />
+                  <Route exact path="/services/:category" component={Services} />
+                  <Route exact path="/services/:category/:id" component={ItemView}/>
+                  {/*<Route exact path="/signup" component={Signup} />
+                  <Route exact path="/herogrid" component={HeroGrid} />
+                  <Route exact path="/heroes/:id" component={Producto} />
+                  <Route exact path="/comics/:id" component={EditarProducto} />*/}
 
-              </Switch>
-              </Provider>
-            <Footer/>
-        </Router>
-      </div> 
+                </Switch>
+                </Provider>
+              
+          </Router>
+        </div> 
+      <Footer/>
+      </Fragment>
+      
     );
   }
   
