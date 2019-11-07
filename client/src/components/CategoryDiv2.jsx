@@ -34,6 +34,7 @@ function CategoryDiv2({title, category, itemList}){
       style={{ 
         zIndex: isHovered ? 100 : 1,
         height: '100%',
+        width: '100%'
       }}
       >
         <NavLink to={`/services/${category}`} activeClassName="selected">

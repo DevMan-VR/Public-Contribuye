@@ -61,11 +61,13 @@
 
 .category-div{
     margin: top;
-    width: 30ch;
+    width: 90%;
     height: 30ch;
+    align-self: center;
     box-shadow: 8px 8px 10px grey;
     text-shadow: 1px 1px 1px rgb(46, 45, 45);
 }
+
 
 .category-div li {
     color: whitesmoke;

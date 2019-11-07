@@ -37,7 +37,7 @@ function CategoryDiv({title, category, itemList}){
       }}
       >
         <NavLink to={`/services/${category}`} activeClassName="selected">
-            <button className={"category-div "+category} >
+            <button className={"d-flex justify-content-between category-div "+category} >
                 
                 <div>
                     <div>
