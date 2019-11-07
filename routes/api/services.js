@@ -31,12 +31,12 @@ router.get('/:category',(req,res) =>{
         .then(services => res.json(services))
 });
 
-// @route GET api/services/category/id
+/*// @route GET api/services/category/id
 router.get('/:category/:id',(req,res) =>{
     Service.findOne({ id: req.params.id })
         .sort({date:-1}) //descending
         .then(services => res.json(services))
-});
+});*/
 // @route POST api/services
 // @desc Create A Service
 // @access Private
