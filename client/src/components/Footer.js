@@ -11,6 +11,9 @@ const Footer = () => (
                 Email: contribuyecomunidad@gmail.com
                 <br/>
                 Número telefónico: +56 9 35123052
+                <br/>
+                <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
             </Col>
 
 
@@ -21,6 +24,7 @@ const Footer = () => (
                <br/>
             </Col>
           </Row>
+
         </div>
     </footer>
 )

@@ -19,7 +19,10 @@
     height: 300px;
     clear:both;
 }
-
+.star-icon{
+    height: 2rem;
+    width: 2rem;
+}
 .health{
     background-color:#4BCDA1 ;
 }

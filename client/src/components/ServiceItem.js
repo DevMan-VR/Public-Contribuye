@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import '../css/Utility.css'
 import {connect} from 'react-redux';
 import {addItem} from '../actions/itemActions';
+import star from '../images/star.png'
 import {
     Button,
     Modal,
@@ -18,12 +19,18 @@ class ServiceItem extends Component  {
     state = {
         modal: false,
         title: 'none',
+        randInt: 0,
+        times: 0
     }
 
     toggle = () => {
         this.setState({
             modal: !this.state.modal
         });
+
+    }
+    componentDidMount(){
+        
 
     }
 
@@ -40,7 +47,7 @@ class ServiceItem extends Component  {
             description: this.state.description,
             category: this.state.category,
             subcategory: this.state.subcategory,
-            serviceType: this.state.serviceType,
+            service_type: this.state.service_type,
             p_method: this.state.p_method,
             p_amount: this.state.p_amount,
             location: this.state.location,
@@ -61,6 +68,12 @@ class ServiceItem extends Component  {
 
 
     render(){
+        var min = 2;
+        var max = 5;
+        var randFloat = min + (Math.random() * (max-min)) 
+        var roundedFloat = Math.round( randFloat * 10 ) / 10;
+        var randInt =  Math.floor(randFloat);
+        var times = [1,2,3,4,5];
         console.log(this);
         return(
             <Fragment>
@@ -73,14 +86,26 @@ class ServiceItem extends Component  {
                 </div>
                 <div className="container-fluid">
                     <div className="row">
-                    <div className="col-9">
-                        <p style={{textAlign:"left",paddingLeft:"3rem"}}>{this.props.elem.description}</p>
-                    </div>
-                    <div className="col-3">
-                        <p style={{textAlign:"right", paddingRight:"1rem"}}>
-                            {this.props.elem.service_type}
-                        </p>
-                    </div>
+                        <div className="col-8">
+                            <p style={{textAlign:"left",paddingLeft:"3rem"}}></p>
+                        </div>
+                        <div className="col-4">
+                            <div className="container-fluid">
+                                <div className="row">
+                                    <div className="col-12">
+                                        <p style={{textAlign:"right", paddingRight:"1rem"}}>
+                                            {this.props.elem.service_type}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-12">
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                        
                     </div>
                 </div>
                 
@@ -98,33 +123,56 @@ class ServiceItem extends Component  {
             <ModalHeader toggle={this.toggle}>{this.props.elem.title}</ModalHeader>
             <ModalBody>
                 
-                        <div className="container-fluid">
+                        <div className="container-fluid" >
                             <div className="row">
 
-                                <div className="col-8">
-                                    <div className="container-fluid">
-                                        <div className="row">
-                                            <p>{this.props.elem.title}</p>
-                                        </div>
-                                        <div className="row">
-                                            <p>
-                                                {this.props.elem.description}<br></br>
-                                                {this.props.elem.contact_phone}<br></br>
-                                                {this.props.elem.contact_mail}
-
-                                            </p>
+                                <div className="col-12">
+                                        <div>
                                             
-                                        </div>
-                                    </div>
+                                                <p>
+                                                    <h4>Descripción</h4>
+                                                    {this.props.elem.description}
+                                                    <h4 className="mt-4">Información de contacto</h4>
+                                                    {this.props.elem.contact_phone}<br></br>
+                                                    {this.props.elem.contact_mail}
+
+                                                </p>
+                                         </div>
+                                                    
                                 </div>
-                                <div className="col-4">
+
+                                <div className="col-12">
                                     <p>
-                                        {this.props.elem.serviceType} 
-                                        <br></br>{this.props.elem.serviceType === "offer" ?  this.props.elem.p_method : null}
+                                        <h4>Precio</h4>
+                                        {this.props.elem.p_amount}<br></br>
+                                            
+                                                
+                               
+                                            
+                                        {/*<br></br>{this.props.elem.service_type === "offer" ?  this.props.elem.p_amount : null}*/}
+
                                         {/*this.state.elem.location*/} <br></br>
                                     </p>
                                 </div>
 
+                            </div>
+
+                            <div className="row">
+                                <div className="col-md-12 col-sm-12  mb-3 ">
+                                    
+                                    <div className="d-flex justify-content-end">
+                                        {times.map( (number) =>  {
+                                                    if(number <= randInt) return <img className="star-icon" src={star}></img>
+                                                    return null
+                                        })}
+                                    </div>
+                                    <div className="d-flex justify-content-end mr-2">
+                                        {roundedFloat}
+                                    </div>
+                                            
+ 
+
+                                </div>
                             </div>
 
                             <button className="w-100" onClick={this.submitRequest}>
