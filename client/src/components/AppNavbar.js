@@ -114,7 +114,8 @@ class AppNavbar extends Component {
                 
                     <Navbar expand="sm" className="underNavbar py-0">
                         <NavbarToggler onClick={this.toggle} style={{backgroundColor:'white'}}/>
-                        <Collapse isOpen={this.state.isOpen} navbar>
+                        <Collapse className="justify-content-between" isOpen={this.state.isOpen} navbar>
+                            
                             <NavLink href="/" className="brandy" activeClassName="selected">Inicio</NavLink>
                             <NavLink href="/services/health" className="brandy" activeClassName="selected">Salud</NavLink>
                             <NavLink href="/services/law" className="brandy" activeClassName="selected">Leyes</NavLink>
@@ -124,6 +125,8 @@ class AppNavbar extends Component {
                             <NavLink href="/services/local-market" className="brandy" activeClassName="selected">Negocios Locales</NavLink>
                             <NavLink href="/services/offers" className="brandy" activeClassName="selected">Ofertas y Rebajas</NavLink>
                             <NavLink href="/services/others" className="brandy" activeClassName="selected">Otros</NavLink>
+
+                            
 
                         </Collapse>
                     </Navbar>
