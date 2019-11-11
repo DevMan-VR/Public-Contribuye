@@ -29,35 +29,38 @@ class ServiceList extends Component {
     render(){
         const {items} = this.props.item;
         return(
-            <Container className="mt-3">
+            <Container className="mt-5">
 
                 <ListGroup>
                     <TransitionGroup className="shopping-list">
-                        {items.map( (item) => (
-                            <CSSTransition key={item._id} timeout={500} classNames="fade">
-                                <ListGroupItem className="ml-0 p-1 border-0">
-                                    {/**{this.props.isAuthenticated ? 
-                                    
-                                        <Button 
-                                        className="remove-btn"
-                                        color="danger"
-                                        size="sm"
-                                        onClick={this.onDeleteClick.bind(this, _id)}
-                                        >
-                                            &times;
-                                        </Button>
+                        
+                            {items.map( (item) => (
+                                <CSSTransition key={item._id} timeout={500} classNames="fade">
+                                    <ListGroupItem className="ml-0 border-0 p-0">
+                                        {/**{this.props.isAuthenticated ? 
                                         
+                                            <Button 
+                                            className="remove-btn"
+                                            color="danger"
+                                            size="sm"
+                                            onClick={this.onDeleteClick.bind(this, _id)}
+                                            >
+                                                &times;
+                                            </Button>
+                                            
 
-                                        : null
+                                            : null
 
-                                    }
-                                {name}*/}
+                                        }
+                                    {name}*/}
 
-                                <ServiceItem elem={item}/>
+                                    <ServiceItem elem={item}/>
 
-                                </ListGroupItem>
-                            </CSSTransition>
-                        ))}
+                                    </ListGroupItem>
+                                </CSSTransition>
+                            ))}
+                   
+                        
                     </TransitionGroup>
                     
                 </ListGroup>

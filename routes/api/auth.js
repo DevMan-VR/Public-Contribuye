@@ -60,11 +60,10 @@ router.post('/',(req,res) =>{
 // @access Private
 router.get('/user', auth, (req,res) => {
     User.findById(req.user.id)
-        .select('-password')
-        .then(user => res.json(user));
+        .then(user => { res.json(user)});
 });
 
-// @route GET api/auth/user
+// @route GET api/auth/login
 // @desc Get user data
 // @access Private
 router.post('/login', (req,res) => {

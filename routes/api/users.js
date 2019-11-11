@@ -10,7 +10,7 @@ const User = require('../../models/User');
 // @desc Register new user
 // @access Public
 router.post('/',(req,res) =>{
-    const {name, email, password, isContributor, phoneNumber, address, city, country, timezone, profileImgUrl, experience, registerDate, achievements, serviceRequests,company} = req.body;
+    const {name, email, password, isContributor, phoneNumber, address, city, country, timezone, profileImgUrl, experience, registerDate, achievements, serviceRequests, servicesOffered,company} = req.body;
     
 
     // Simple validation
@@ -37,6 +37,7 @@ router.post('/',(req,res) =>{
                 registerDate,
                 achievements,
                 serviceRequests,
+                servicesOffered,
                 company
             })
 
@@ -71,6 +72,7 @@ router.post('/',(req,res) =>{
                                             registerDate: user.registerDate,
                                             achievements: user.achievements,
                                             serviceRequests: user.serviceRequests,
+                                            servicesOffered: user.servicesOffered,
                                             company: user.company
                                         }
                                     });

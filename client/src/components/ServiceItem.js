@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import '../css/Utility.css'
 import {connect} from 'react-redux';
-import {addItem} from '../actions/itemActions';
+import {addItem,addServiceRequest} from '../actions/itemActions';
 import star from '../images/star.png'
 import {
     Button,
@@ -29,10 +29,6 @@ class ServiceItem extends Component  {
         });
 
     }
-    componentDidMount(){
-        
-
-    }
 
 
     onChange = async e => {
@@ -40,34 +36,28 @@ class ServiceItem extends Component  {
         console.log(this.state);
     }
   
-    onSubmit = e => {
+
+    submitRequest = (e) => {
         e.preventDefault();
-        const newItem = {
-            title: this.state.name,
-            description: this.state.description,
-            category: this.state.category,
-            subcategory: this.state.subcategory,
-            service_type: this.state.service_type,
-            p_method: this.state.p_method,
-            p_amount: this.state.p_amount,
-            location: this.state.location,
-            until: this.state.until
+        const newServiceRequest = {
+            userRequesterId: this.props.auth.user._id,
+            userOffererId: this.props.elem.userFather,
+            serviceId: this.props.elem._id,
+            stateRequest: "requesting"
+
         }
+        console.log(newServiceRequest);
+        this.props.addServiceRequest(newServiceRequest);
+        console.log("despachando nueva request de servicio");
 
-        //Add item via addItem action
-        this.props.addItem(newItem);
 
-        //Close modal
-        this.toggle();
-    }
-
-    submitRequest = () => {
-        console.log("despachando nueva request de servicio")
         this.toggle();
     }
 
 
     render(){
+        console.log("sadasdsamuu");
+        console.log(this.props.elem);
         var min = 2;
         var max = 5;
         var randFloat = min + (Math.random() * (max-min)) 
@@ -77,32 +67,27 @@ class ServiceItem extends Component  {
         console.log(this);
         return(
             <Fragment>
-            <button className={"w-100 h-100 "+this.props.elem.category+" item-div"} onClick={this.toggle}>
+            <button className={"w-100 item-div "+this.props.elem.category+"_item"} style={{height:'19em'}} onClick={this.toggle}>
             <div >
-                <div>
-                <h3 style={{textAlign:"left",paddingLeft:"3.7rem"}}>
-                    {this.props.elem.title}
-                </h3>
+                <div className="row">
+                    <div className="col-md-12 col-sm-12 col-xs-12">
+                        <h3  style={{textAlign:"left",paddingLeft:"3.7rem"}}>
+                            {this.props.elem.title}
+                        </h3>
+                    </div>
+
                 </div>
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-8">
-                            <p style={{textAlign:"left",paddingLeft:"3rem"}}></p>
+                        <div className="col-md-9 col-sm-12">
+                            <p style={{textAlign:"left",paddingLeft:"3rem", paddingRight:"3rem"}}>{(this.props.elem.description).substring(0,100)+"..."}</p>
                         </div>
-                        <div className="col-4">
-                            <div className="container-fluid">
-                                <div className="row">
-                                    <div className="col-12">
-                                        <p style={{textAlign:"right", paddingRight:"1rem"}}>
+                        <div className="col-md-3 col-sm-12">
+
+                                        <p style={{textAlign:"right"}}>
                                             {this.props.elem.service_type}
                                         </p>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-12">
-                                    </div>
-                                </div>
-                            </div>
+
                         
                         </div>
                         
@@ -174,11 +159,15 @@ class ServiceItem extends Component  {
 
                                 </div>
                             </div>
-
-                            <button className="w-100" onClick={this.submitRequest}>
-                                <h4>Solicitar</h4>
-
-                            </button>
+                            {
+                                this.props.auth.isAuthenticated ? 
+                                    <button className="w-100" onClick={this.submitRequest}>
+                                    <h4>Solicitar</h4>
+                                    </button>
+                                :
+                                    <p>Para solicitar el Servicio Registrate o Inicia Sesión...</p>
+                            }
+                            
                             
                         </div>
             </ModalBody>
@@ -206,7 +195,7 @@ class ServiceItem extends Component  {
 
 const mapStateToProps = state => ({
     item: state.item,
-    isAuthenticated: state.auth.isAuthenticated
+    auth: state.auth
 });
 
-export default connect(mapStateToProps, {addItem})(ServiceItem);
+export default connect(mapStateToProps, {addItem,addServiceRequest})(ServiceItem);

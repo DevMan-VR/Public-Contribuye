@@ -36,19 +36,36 @@ class RegisterModal extends Component {
         experience: 0,
         company: 'none',
         registerDate: null,
-        achievements: [{
-            description: 'none',
-            value: 0,
-            iconUrl: 'none'
 
-        }],
+        achievements: [],
         serviceRequests: [{
-            idUserOfferer: 'none',
-            idUserRequester: 'none',
-            titleServiceOffered: 'none',
-            stateRequest: 'none'
+            idUserRequester: "none",
+            idUserOfferer: "none",
+            titleServiceOffered: "none",
+            serviceId: "none",
+            stateRequest: "none"
         }],
-        
+        servicesOffered: [{
+            title: 'none',
+            description: 'none',
+            category: 'none',
+            subcategory: 'none',
+            service_type: 'none',
+            p_method: 'none',
+            p_amount: 0,
+            location: 'none',
+            contact_phone: 'none',
+            contact_mail: 'none',
+            serviceRequests: [{
+                idUserRequester: "none",
+                idUserOfferer: "none",
+                titleServiceOffered: "none",
+                serviceId: "none",
+                stateRequest: "none"
+            }],
+            userFather: 'none'
+        }],
+
         msg: null
     }
 
@@ -98,7 +115,7 @@ class RegisterModal extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        const {name, email, password, phoneNumber, city,address,country,timezone,profileImgUrl,isContributor,achievements,serviceRequests,experience,company,registerDate} = this.state;
+        const {name, email, password, phoneNumber, city,address,country,timezone,profileImgUrl,isContributor,achievements,experience,company,registerDate,serviceRequests, servicesOffered} = this.state;
 
         // Create user object
         const newUser = {
@@ -116,7 +133,8 @@ class RegisterModal extends Component {
             serviceRequests,
             experience,
             company,
-            registerDate
+            registerDate,
+            servicesOffered
         };
 
         console.log(newUser);
@@ -132,7 +150,7 @@ class RegisterModal extends Component {
         return (
             <div>
                 
-                <NavLink className="brandy" onClick={this.toggle} href="#">
+                <NavLink className="brandy_man" onClick={this.toggle} href="#">
                     Register
                 </NavLink>
 

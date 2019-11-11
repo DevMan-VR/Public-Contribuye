@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ServiceRequest = require('./ServiceRequest').schema;
+const Service = require('./Service').schema;
+const Achievement = require('./Achievement').schema;
+
 
 const UserSchema = new Schema({
     name: {
@@ -37,18 +41,14 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    serviceRequests: [{
-        idUserRequester: {type: String},
-        idUserOfferer: {type:String},
-        titleServiceOffered: {type:String},
-        stateRequest: {type:String}
-    }],
-    achievements: [{
-        name: {type: String},
-        description: {type: String},
-        value: {type: Number},
-        iconUrl: {type: String}
-    }]
+
+    serviceRequests: [ServiceRequest],
+
+    servicesOffered: [Service],
+
+    achivements: [Achievement]
+
+
 });
 
 module.exports = User = mongoose.model('user',UserSchema);

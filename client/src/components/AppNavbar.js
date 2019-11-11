@@ -97,8 +97,8 @@ class AppNavbar extends Component {
         return (
             <div>
                 <Navbar expand="sm" className={this.props.item.category ? this.props.item.category : 'contribuye'} >
-                    <Container>
-                        <NavbarBrand className="brandy" href="/">Contribuye</NavbarBrand>
+                    <div className="container">
+                        <NavbarBrand className="brandy_man ml-3" href="/">Contribuye</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
@@ -108,27 +108,30 @@ class AppNavbar extends Component {
                             </Nav>
                         </Collapse>
 
-                    </Container>
+                    </div>
                 </Navbar>
 
                 
                     <Navbar expand="sm" className="underNavbar py-0">
                         <NavbarToggler onClick={this.toggle} style={{backgroundColor:'white'}}/>
-                        <Collapse className="justify-content-between" isOpen={this.state.isOpen} navbar>
+                        <div className="container">
+                        <Collapse className="justify-content-between ml-2" isOpen={this.state.isOpen} navbar>
                             
-                            <NavLink href="/" className="brandy" activeClassName="selected">Inicio</NavLink>
-                            <NavLink href="/services/health" className="brandy" activeClassName="selected">Salud</NavLink>
-                            <NavLink href="/services/law" className="brandy" activeClassName="selected">Leyes</NavLink>
-                            <NavLink href="/services/tech" className="brandy" activeClassName="selected">Tecnologia</NavLink>
-                            <NavLink href="/services/learning" className="brandy" activeClassName="selected">Aprendizaje</NavLink>
-                            <NavLink href="/services/events" className="brandy" activeClassName="selected">Eventos</NavLink>
-                            <NavLink href="/services/local-market" className="brandy" activeClassName="selected">Negocios Locales</NavLink>
-                            <NavLink href="/services/offers" className="brandy" activeClassName="selected">Ofertas y Rebajas</NavLink>
-                            <NavLink href="/services/others" className="brandy" activeClassName="selected">Otros</NavLink>
+                            <NavLink href="/" className="brandy" >Inicio</NavLink>
+                            <NavLink href="/services/health" className="health_item_nav" >Salud</NavLink>
+                            <NavLink href="/services/law" className="law_item_nav">Leyes</NavLink>
+                            <NavLink href="/services/tech" className="tech_item_nav" >Tecnologia</NavLink>
+                            <NavLink href="/services/learning" className="learning_item_nav">Aprendizaje</NavLink>
+                            <NavLink href="/services/events" className="events_item_nav">Eventos</NavLink>
+                            <NavLink href="/services/local-market" className="local-market_item_nav">Negocios Locales</NavLink>
+                            <NavLink href="/services/offers" className="offers_item_nav">Ofertas y Rebajas</NavLink>
+                            <NavLink href="/services/others" className="others_item_nav">Otros</NavLink>
 
                             
 
                         </Collapse>
+                        </div>
+                        
                     </Navbar>
                 
             </div>

@@ -18,10 +18,12 @@ export const loadUser = () => (dispatch, getState) => {
     dispatch({type: USER_LOADING});
 
     axios.get('/api/auth/user', tokenConfig(getState))
-        .then(res => dispatch({
+        .then(res => { 
+            dispatch({
             type: USER_LOADED,
             payload: res.data
-        }))
+            })
+        })
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status));
             dispatch({
@@ -31,7 +33,7 @@ export const loadUser = () => (dispatch, getState) => {
 }
 
 // Register User
-export const register = ({ name, email, password, phoneNumber,address,city,country,timezone,profileImgUrl,isContributor,achievements,serviceRequests}) => dispatch => {
+export const register = ({ name, email, password, phoneNumber,address,city,country,timezone,profileImgUrl,isContributor,achievements,serviceRequests, servicesOffered}) => dispatch => {
     // Headers
     const config = {
         headers: {
@@ -40,7 +42,7 @@ export const register = ({ name, email, password, phoneNumber,address,city,count
     }
 
     // Request body
-    const body = JSON.stringify({name, email, password,phoneNumber,address,city,country,timezone,profileImgUrl,isContributor,achievements,serviceRequests});
+    const body = JSON.stringify({name, email, password,phoneNumber,address,city,country,timezone,profileImgUrl,isContributor,achievements,serviceRequests, servicesOffered});
     //console.log(`header: ${config.headers} body: ${body}`);
     console.log("isbody:");
     console.log(body);

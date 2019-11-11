@@ -26,11 +26,15 @@ class ItemModal extends Component {
         p_amount: 0,
         location: 'none',
         contact_phone: '',
-        contact_mail: ''
-    }
-
-    static propTypes = {
-        isAuthenticated: PropTypes.bool
+        contact_mail: '',
+        serviceRequests: [{
+            idUserRequester: "none",
+            idUserOfferer: "none",
+            titleServiceOffered: "none",
+            serviceId: "none",
+            stateRequest: "none"
+        }],
+        userFather: ''
     }
 
     toggle = () => {
@@ -60,9 +64,10 @@ class ItemModal extends Component {
             location: this.state.location,
             until: this.state.until,
             contact_phone: this.state.contact_phone,
-            contact_mail: this.state.contact_mail
+            contact_mail: this.state.contact_mail,
+            userFather: (this.props.auth.user._id || this.props.auth.user.id),
+            serviceRequests: this.state.serviceRequests
         }
-
 
         //Add item via addItem action
         this.props.addItem(newItem);
@@ -76,10 +81,9 @@ class ItemModal extends Component {
         return (
             <div>
 
-                {this.props.isAuthenticated && this.props.item.category ? 
+                {this.props.auth.isAuthenticated && this.props.item.category ? 
                     <Button
                         color="dark"
-                        style={{marginBottom: '2rem'}}
                         onClick={this.toggle}
                     >Agregar Servicio</Button>    
                 :
@@ -216,7 +220,7 @@ class ItemModal extends Component {
 
 const mapStateToProps = state => ({
     item: state.item,
-    isAuthenticated: state.auth.isAuthenticated
+    auth: state.auth
 });
 
 export default connect(mapStateToProps, {addItem})(ItemModal);
