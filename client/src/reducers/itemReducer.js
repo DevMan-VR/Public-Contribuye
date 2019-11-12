@@ -1,4 +1,4 @@
-import {GET_ITEMS, GET_SINGLE_ITEM, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY, ADD_SERVICE_REQUEST} from '../actions/types';
+import {GET_ITEMS, GET_SINGLE_ITEM, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY, ADD_SERVICE_REQUEST,GET_ITEMS_USER} from '../actions/types';
 
 const initialState = {
     items: []
@@ -12,6 +12,12 @@ export default function(state = initialState, action) {
                 items: action.payload,
                 loading: false
             };
+            case GET_ITEMS_USER:
+                return {
+                    ...state,
+                    serviceRequests: action.payload,
+                    loading: false
+                };
         case GET_SINGLE_ITEM:
             return {
                 ...state,

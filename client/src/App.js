@@ -12,6 +12,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 import {loadUser} from './actions/authActions';
 import Services from './pages/Services';
+import MyServices from './pages/MyServices';
+
 import Home from './pages/Home';
 import ItemView from './pages/ItemView';
 import Home2 from './pages/Home2';
@@ -19,7 +21,7 @@ import Home2 from './pages/Home2';
 
 class App extends Component {
 
-  componentDidMount(){
+  componentWillMount(){
     store.dispatch(loadUser());
   }
 
@@ -35,6 +37,7 @@ class App extends Component {
                 
                 <Route exact path="/" component={Home2}/> />
                   <Route exact path="/services/:category" component={Services} />
+                  <Route exact path="/my-services/" component={MyServices} />
                   {/*<Route exact path="/services/:category/:id" component={ItemView}/>
                   {/*<Route exact path="/signup" component={Signup} />
                   <Route exact path="/herogrid" component={HeroGrid} />

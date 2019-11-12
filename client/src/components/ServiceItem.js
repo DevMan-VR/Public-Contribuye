@@ -40,9 +40,9 @@ class ServiceItem extends Component  {
     submitRequest = (e) => {
         e.preventDefault();
         const newServiceRequest = {
-            userRequesterId: this.props.auth.user._id,
+            userRequesterId: (this.props.auth.user._id || this.props.auth.user.id),
             userOffererId: this.props.elem.userFather,
-            serviceId: this.props.elem._id,
+            serviceId: (this.props.elem._id || this.props.elem.id),
             stateRequest: "requesting"
 
         }

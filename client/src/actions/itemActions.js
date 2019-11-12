@@ -1,4 +1,4 @@
-import {GET_ITEMS, GET_SINGLE_ITEM, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY, ADD_SERVICE_REQUEST} from './types';
+import {GET_ITEMS, GET_SINGLE_ITEM, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY, ADD_SERVICE_REQUEST,GET_ITEMS_USER} from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
 import {returnErrors} from './errorActions';
@@ -15,6 +15,24 @@ export const getItems = category => dispatch => {
         )
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
+
+export const getItemsFromUser = userid => dispatch => {
+    axios
+        .get('/api/services/user/'+userid)
+        .then(res=> {
+            console.log(res);
+                dispatch({
+                    type: GET_ITEMS_USER,
+                    payload: res.data
+                })
+            }
+            
+        )
+        .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
+};
+
+
+
 
 export const getSingleItem = (id,category) => (dispatch, getState) => {
     /*axios

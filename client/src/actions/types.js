@@ -15,3 +15,4 @@ export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const SET_CATEGORY ='SET_CATEGORY';
 export const ADD_SERVICE_REQUEST = 'ADD_SERVICE_REQUEST';
+export const GET_ITEMS_USER = 'GET_ITEMS_USER';

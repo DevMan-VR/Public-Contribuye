@@ -28,7 +28,8 @@ class AppNavbar extends Component {
         p_method: 'none',
         p_amount: 0,
         location: 'none',
-        until: 'none'
+        until: 'none',
+        userid: ''
     }
 
     static propTypes = {
@@ -68,14 +69,20 @@ class AppNavbar extends Component {
 
         const {isAuthenticated, user} = this.props.auth;
         console.log("logsiño");
+        console.log(this.props.auth);
         console.log(this.props.item.category);
         console.log(this.props.item.items.length);
         const authLinks = (
             <Fragment>
                 <NavItem>
                     <span className="navbar-text mr-3">
-                        <strong>{user ? `Welcome ${user.name}` : ''}</strong>
+                        <strong style={{color: 'whitesmoke'}}>{user ? `Welcome ${user.name}` : ''}</strong>
                     </span>
+                </NavItem>
+                <NavItem>
+                    <NavLink onClick={this.props.myServices} href={"/my-services/"} style={{color:'whitesmoke'}}>
+                        Mis Servicios
+                    </NavLink>
                 </NavItem>
                 <NavItem>
                     <Logout />

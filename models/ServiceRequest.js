@@ -6,8 +6,7 @@ const ServiceRequestSchema = new Schema({
 
         idUserRequester: {type: String, required: true},
         idUserOfferer: {type:String, required: true},
-        titleServiceOffered: {type:String},
-        serviceId: {type:String, required: true},
+        serviceId: { type:String, required:true},
         stateRequest: {type:String, required: true}
     
 });

@@ -36,6 +36,16 @@ router.get('/:category',(req,res) =>{
         .sort({date:-1}) //descending
         .then(services => res.json(services))
 });
+// @route GET api/services
+// @desc Get services from category
+// @access Public
+router.get('/user/:userid',(req,res) =>{
+    console.log(req.params.userid);
+    let regexp = new RegExp("^" + req.params.userid);
+    Service.find({userFather: regexp})
+        .sort({date:-1}) //descending
+        .then(services => res.json(services))
+});
 
 /*// @route GET api/services/category/id
 router.get('/:category/:id',(req,res) =>{
@@ -99,12 +109,12 @@ router.put('/request/:id', auth, (req,res) => {
         .then(user => {
             user.serviceRequests.push(serviceRequest);
             user.save();
-        });
+        }).catch(err => console.log(err));
     Service.findById(req.body.serviceId)
         .then( service => {
             service.serviceRequests.push(serviceRequest);
             service.save();
-        })
+        }).catch(err => console.log(err));
 });
 
 module.exports = router;
