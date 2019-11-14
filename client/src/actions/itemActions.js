@@ -1,4 +1,4 @@
-import {GET_ITEMS, GET_SINGLE_ITEM, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY, ADD_SERVICE_REQUEST,GET_ITEMS_USER} from './types';
+import {GET_ITEMS, GET_SINGLE_ITEM, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY,GET_ITEMS_USER, ADD_SERVICE_REQUEST,ITEMS_LOADING_USER} from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
 import {returnErrors} from './errorActions';
@@ -17,9 +17,12 @@ export const getItems = category => dispatch => {
 };
 
 export const getItemsFromUser = userid => dispatch => {
+    console.log("llegue al getItemsFromUser")
+    dispatch(setItemsLoadingUser());
     axios
         .get('/api/services/user/'+userid)
         .then(res=> {
+            console.log("esto es el res de los items offered of user");
             console.log(res);
                 dispatch({
                     type: GET_ITEMS_USER,
@@ -90,6 +93,12 @@ export const addItem = item => (dispatch, getState) => {
 export const setItemsLoading = () => {
     return {
         type: ITEMS_LOADING
+    };
+};
+
+export const setItemsLoadingUser = () => {
+    return {
+        type: ITEMS_LOADING_USER
     };
 };
 

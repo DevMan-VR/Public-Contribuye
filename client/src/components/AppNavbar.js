@@ -79,9 +79,24 @@ class AppNavbar extends Component {
                         <strong style={{color: 'whitesmoke'}}>{user ? `Welcome ${user.name}` : ''}</strong>
                     </span>
                 </NavItem>
+                 { user ?
+                    user.isContributor ?
+                            <NavItem>
+                            <NavLink onClick={this.props.myServices} href={"/my-services/offered"} style={{color:'whitesmoke'}}>
+                                Mis Ofrecidos
+                            </NavLink>
+                        </NavItem>
+                        : null
+                    : null
+                    
+                     
+                    
+                }
+                    
+
                 <NavItem>
-                    <NavLink onClick={this.props.myServices} href={"/my-services/"} style={{color:'whitesmoke'}}>
-                        Mis Servicios
+                    <NavLink onClick={this.props.myServices} href={"/my-services/requested"} style={{color:'whitesmoke'}}>
+                        Mis Solicitados
                     </NavLink>
                 </NavItem>
                 <NavItem>

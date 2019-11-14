@@ -99,7 +99,15 @@ router.put('/request/:id', auth, (req,res) => {
         idUserRequester: req.body.userRequesterId,
         idUserOfferer: req.body.userOffererId,
         serviceId: req.body.serviceId,
-        stateRequest: req.body.stateRequest
+        stateRequest: req.body.stateRequest,
+        
+        title: {type: String,required: true},
+        description : {type: String,required: true},
+        p_amount: { type: Number  },
+        p_method: { type: String},
+        contact_phone: {type: String},
+        contact_mail: {type: String},
+        location: {type: String},
 
     });
 

@@ -14,7 +14,7 @@ import {
     Input
 } from 'reactstrap';
 
-class ServiceItem extends Component  {
+class ServiceRequestItem extends Component  {
 
     state = {
         modal: false,
@@ -37,50 +37,18 @@ class ServiceItem extends Component  {
     }
   
 
-    submitRequest = (e) => {
-        e.preventDefault();
-        const newServiceRequest = {
-            userRequesterId: (this.props.auth.user._id || this.props.auth.user.id),
-            userOffererId: this.props.elem.userFather,
-            serviceId: (this.props.elem._id || this.props.elem.id),
-            stateRequest: "requesting",
-
-            title: this.props.elem.title,
-            description : this.props.elem.description,
-            p_amount: this.props.elem.p_amount,
-            p_method: this.props.elem.p_method,
-            contact_phone: this.props.elem.contact_phone,
-            contact_mail: this.props.elem.contact_mail,
-            location: this.props.elem.location,
-
-        }
-        console.log(newServiceRequest);
-        this.props.addServiceRequest(newServiceRequest);
-        console.log("despachando nueva request de servicio");
-
-
-        this.toggle();
-    }
 
 
     render(){
-        console.log("sadasdsamuu");
-        console.log(this.props.elem);
-        var min = 2;
-        var max = 5;
-        var randFloat = min + (Math.random() * (max-min)) 
-        var roundedFloat = Math.round( randFloat * 10 ) / 10;
-        var randInt =  Math.floor(randFloat);
-        var times = [1,2,3,4,5];
-        console.log(this);
+
         return(
             <Fragment>
-            <button className={"w-100 item-div "+this.props.elem.category+"_item"} style={{height:'19em'}} onClick={this.toggle}>
+            <button className={"w-100 item-div "} style={{height:'19em'}} onClick={this.toggle}>
             <div >
                 <div className="row">
                     <div className="col-md-12 col-sm-12 col-xs-12">
                         <h3  style={{textAlign:"left",paddingLeft:"3.7rem"}}>
-                            {this.props.elem.title}
+                            {this.props.elem.serviceId}
                         </h3>
                     </div>
 
@@ -88,12 +56,12 @@ class ServiceItem extends Component  {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-9 col-sm-12">
-                            <p style={{textAlign:"left",paddingLeft:"3rem", paddingRight:"3rem"}}>{(this.props.elem.description).substring(0,100)+"..."}</p>
+                            <p style={{textAlign:"left",paddingLeft:"3rem", paddingRight:"3rem"}}>{"descripcion".substring(0,100)+"..."}</p>
                         </div>
                         <div className="col-md-3 col-sm-12">
 
                                         <p style={{textAlign:"right"}}>
-                                            {this.props.elem.service_type}
+                                            ServiceType
                                         </p>
 
                         
@@ -124,10 +92,10 @@ class ServiceItem extends Component  {
                                             
                                                 <p>
                                                     <h4>Descripción</h4>
-                                                    {this.props.elem.description}
+                                                    descripcion
                                                     <h4 className="mt-4">Información de contacto</h4>
-                                                    {this.props.elem.contact_phone}<br></br>
-                                                    {this.props.elem.contact_mail}
+                                                    contact_phone
+                                                    contact_mail
 
                                                 </p>
                                          </div>
@@ -137,7 +105,7 @@ class ServiceItem extends Component  {
                                 <div className="col-12">
                                     <p>
                                         <h4>Precio</h4>
-                                        {this.props.elem.p_amount}<br></br>
+                                        pamount<br></br>
                                             
                                                 
                                
@@ -149,32 +117,6 @@ class ServiceItem extends Component  {
                                 </div>
 
                             </div>
-
-                            <div className="row">
-                                <div className="col-md-12 col-sm-12  mb-3 ">
-                                    
-                                    <div className="d-flex justify-content-end">
-                                        {times.map( (number) =>  {
-                                                    if(number <= randInt) return <img className="star-icon" src={star}></img>
-                                                    return null
-                                        })}
-                                    </div>
-                                    <div className="d-flex justify-content-end mr-2">
-                                        {roundedFloat}
-                                    </div>
-                                            
- 
-
-                                </div>
-                            </div>
-                            {
-                                this.props.auth.isAuthenticated ? 
-                                    <button className="w-100" onClick={this.submitRequest}>
-                                    <h4>Solicitar</h4>
-                                    </button>
-                                :
-                                    <p>Para solicitar el Servicio Registrate o Inicia Sesión...</p>
-                            }
                             
                             
                         </div>
@@ -206,4 +148,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps, {addItem,addServiceRequest})(ServiceItem);
+export default connect(mapStateToProps, null)(ServiceRequestItem);

@@ -4,35 +4,25 @@ import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import {connect} from 'react-redux';
 import {getItems, deleteItem} from '../actions/itemActions';
 import PropTypes from 'prop-types';
-import ServiceItem from './ServiceItem';
+import ServiceRequestItem from './ServiceRequestItem';
 
 
 class ServiceRequestList extends Component {
 
-    static propTypes = {
-        getItems: PropTypes.func.isRequired,
-        item: PropTypes.object.isRequired,
-        isAuthenticated: PropTypes.bool
-    };
 
-    componentDidMount(){
-        this.props.getItems(this.props.item.category);
-    }
-
-    onDeleteClick = (id) => {
-        this.props.deleteItem(id);
-    }
 
     render(){
-        const {items} = this.props.item;
+        const {list} = this.props.list;
+        console.log("Logsiñopepe");
+        console.log(this.props);
         return(
             <Container className="mt-5">
 
                 <ListGroup>
                     <TransitionGroup className="shopping-list">
                         
-                            {items.map( (item) => (
-                                <CSSTransition key={item._id} timeout={500} classNames="fade">
+                            {this.props.list.map( (listItem) => (
+                                <CSSTransition key={listItem._id} timeout={500} classNames="fade">
                                     <ListGroupItem className="ml-0 border-0 p-0">
                                         {/**{this.props.isAuthenticated ? 
                                         
@@ -51,7 +41,7 @@ class ServiceRequestList extends Component {
                                         }
                                     {name}*/}
 
-                                    <ServiceItem elem={item}/>
+                                    <ServiceRequestItem elem={listItem}/>
 
                                     </ListGroupItem>
                                 </CSSTransition>
@@ -76,7 +66,7 @@ class ServiceRequestList extends Component {
 
 const mapStateToProps = (state) => ({
     item: state.item,
-    isAuthenticated: state.auth.isAuthenticated
+    auth: state.auth
 })
 
-export default connect(mapStateToProps, { getItems, deleteItem}) (ServiceRequestList);
+export default connect(mapStateToProps, null) (ServiceRequestList);

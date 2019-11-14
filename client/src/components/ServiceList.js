@@ -6,9 +6,6 @@ import {getItems, deleteItem} from '../actions/itemActions';
 import PropTypes from 'prop-types';
 import ServiceItem from './ServiceItem';
 
-const colors = {
-    
-}
 
 class ServiceList extends Component {
 
@@ -79,7 +76,7 @@ class ServiceList extends Component {
 
 const mapStateToProps = (state) => ({
     item: state.item,
-    isAuthenticated: state.auth.isAuthenticated
+    auth: state.auth.isAuthenticated
 })
 
 export default connect(mapStateToProps, { getItems, deleteItem}) (ServiceList);

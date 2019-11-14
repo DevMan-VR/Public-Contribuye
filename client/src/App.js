@@ -12,11 +12,12 @@ import { Provider } from 'react-redux';
 import store from './store';
 import {loadUser} from './actions/authActions';
 import Services from './pages/Services';
-import MyServices from './pages/MyServices';
+import MyServiceRequests from './pages/MyServiceRequests';
 
 import Home from './pages/Home';
 import ItemView from './pages/ItemView';
 import Home2 from './pages/Home2';
+import MyServicesOffered from './pages/MyServicesOffered';
 
 
 class App extends Component {
@@ -37,7 +38,8 @@ class App extends Component {
                 
                 <Route exact path="/" component={Home2}/> />
                   <Route exact path="/services/:category" component={Services} />
-                  <Route exact path="/my-services/" component={MyServices} />
+                  <Route exact path="/my-services/requested" component={MyServiceRequests} />
+                  <Route exact path="/my-services/offered" component={MyServicesOffered} />
                   {/*<Route exact path="/services/:category/:id" component={ItemView}/>
                   {/*<Route exact path="/signup" component={Signup} />
                   <Route exact path="/herogrid" component={HeroGrid} />
