@@ -33,8 +33,8 @@ class ItemModal extends Component {
             titleServiceOffered: "none",
             serviceId: "none",
             stateRequest: "none",
-            title: 'none',
-            description: 'none'
+            title: "none",
+            description: "none"
         }],
         userFather: ''
     }

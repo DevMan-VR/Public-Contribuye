@@ -16,6 +16,8 @@ class MyServiceRequests extends Component {
     
 
         console.log(this.props);
+        console.log("chiquillo");
+        
 
         
         return(

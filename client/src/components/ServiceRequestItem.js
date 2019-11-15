@@ -40,7 +40,10 @@ class ServiceRequestItem extends Component  {
 
 
     render(){
-
+        console.log(this);
+        console.log("log");
+        console.log(this.props);
+        
         return(
             <Fragment>
             <button className={"w-100 item-div "} style={{height:'19em'}} onClick={this.toggle}>
@@ -48,7 +51,7 @@ class ServiceRequestItem extends Component  {
                 <div className="row">
                     <div className="col-md-12 col-sm-12 col-xs-12">
                         <h3  style={{textAlign:"left",paddingLeft:"3.7rem"}}>
-                            {this.props.elem.serviceId}
+                            {this.props.elem.title}
                         </h3>
                     </div>
 
@@ -56,12 +59,12 @@ class ServiceRequestItem extends Component  {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-9 col-sm-12">
-                            <p style={{textAlign:"left",paddingLeft:"3rem", paddingRight:"3rem"}}>{"descripcion".substring(0,100)+"..."}</p>
+                            <p style={{textAlign:"left",paddingLeft:"3rem", paddingRight:"3rem"}}>{(this.props.elem.description).substring(0,100)+"..."}</p>
                         </div>
                         <div className="col-md-3 col-sm-12">
 
                                         <p style={{textAlign:"right"}}>
-                                            ServiceType
+                                            {this.props.elem.service_type}
                                         </p>
 
                         
@@ -92,10 +95,12 @@ class ServiceRequestItem extends Component  {
                                             
                                                 <p>
                                                     <h4>Descripción</h4>
-                                                    descripcion
+                                                    {this.props.elem.description}
                                                     <h4 className="mt-4">Información de contacto</h4>
-                                                    contact_phone
-                                                    contact_mail
+                                                    {this.props.elem.contact_phone}
+                                                    {this.props.elem.contact_mail}
+
+                                                    {/*this.props.request ? "numero de solicitantes: "+(this.props.elem.serviceRequest).length :null*/}
 
                                                 </p>
                                          </div>
@@ -105,14 +110,11 @@ class ServiceRequestItem extends Component  {
                                 <div className="col-12">
                                     <p>
                                         <h4>Precio</h4>
-                                        pamount<br></br>
+
                                             
                                                 
-                               
-                                            
-                                        {/*<br></br>{this.props.elem.service_type === "offer" ?  this.props.elem.p_amount : null}*/}
+                               {this.props.elem.service_type === "offer" ?  this.props.elem.p_amount : "Gratis"}
 
-                                        {/*this.state.elem.location*/} <br></br>
                                     </p>
                                 </div>
 

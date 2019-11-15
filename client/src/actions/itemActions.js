@@ -1,4 +1,4 @@
-import {GET_ITEMS, GET_SINGLE_ITEM, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY,GET_ITEMS_USER, ADD_SERVICE_REQUEST,ITEMS_LOADING_USER} from './types';
+import {GET_ITEMS, GET_SINGLE_ITEM,ADD_SERVICE_REQUEST_AUTH, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING, SET_CATEGORY,GET_ITEMS_USER, ADD_SERVICE_REQUEST,ITEMS_LOADING_USER} from './types';
 import axios from 'axios';
 import { tokenConfig } from './authActions';
 import {returnErrors} from './errorActions';
@@ -64,18 +64,28 @@ export const deleteItem = id => (dispatch, getState) => {
 };
 
 export const addServiceRequest= sr => (dispatch, getState) => {
+    addToSelf(sr);
     axios
         .put('/api/services/request/'+sr.serviceId, sr, tokenConfig(getState))
-        .then(res => 
+        .then(res => {
+            console.log("res.addSR");
+            console.log(res);
             dispatch({
                 type: ADD_SERVICE_REQUEST,
                 payload: res.data
             })
             
-        )
+        })
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 
 };
+
+export const addToSelf = sr => (dispatch, getState) => {
+    dispatch({
+        type: ADD_SERVICE_REQUEST_AUTH,
+        payload: sr
+    })
+}
 export const addItem = item => (dispatch, getState) => {
     axios
         .post('/api/services', item, tokenConfig(getState))

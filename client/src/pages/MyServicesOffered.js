@@ -57,7 +57,7 @@ class MyServicesOffered extends Component {
     render(){
     
         console.log(this.props);
-
+        console.log("chiquillo");
         
         return(
             <Container style={{minHeight:"100px"}}>

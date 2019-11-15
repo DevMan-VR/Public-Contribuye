@@ -42,7 +42,9 @@ class RegisterModal extends Component {
             idUserRequester: "none",
             idUserOfferer: "none",
             stateRequest: "none",
-            serviceId: "none"
+            serviceId: "none",
+            title: "none",
+            description: "none"
         }],
         servicesOffered: [{
             title: 'none',
@@ -59,7 +61,9 @@ class RegisterModal extends Component {
                 idUserRequester: "none",
                 idUserOfferer: "none",
                 serviceId: "none",
-                stateRequest: "none"
+                stateRequest: "none",
+                title: "none",
+                description: "none"
             }],
             userFather: 'none'
         }],

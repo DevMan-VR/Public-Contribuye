@@ -40,8 +40,9 @@ class ServiceRequestList extends Component {
 
                                         }
                                     {name}*/}
+                                    {listItem.title==="none" ? null : <ServiceRequestItem elem={listItem} request={true}/>}
 
-                                    <ServiceRequestItem elem={listItem}/>
+                                    
 
                                     </ListGroupItem>
                                 </CSSTransition>
